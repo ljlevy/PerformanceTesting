@@ -11,8 +11,11 @@ OVERVIEW:
 
 With the emergence of HTML5, new Web standards have emerged: 
 CSS-3D, SVG, Web-GL, Canvas2D, Web Socket, Local Storage...
+
 Customers for these new features have performance requirements, particularly with regard to navigation (fluidity of transitions between film thumbnails, change of dynamic appearance, ...).
+
 The devices must be qualified according to their CPU and GPU (Open-GL / Web-GL) capacities and achieve correct performance (at least 25 fps - frames per second) in order to have smooth navigation.
+
 There are a number of test benchmarks to qualify the performance of a browser and its compatibility with the HTML5 standard.
 
 For example:
@@ -110,7 +113,7 @@ Each Java class implements a specific test, that means going to a specific url (
 
 	@Test
 	public void testFPS() 
-   {
+       {
 		DButilities DB = new DButilities();
 
 		DB.addTestCase("CSS3 Horizontal list",
@@ -143,28 +146,31 @@ Each Java class implements a specific test, that means going to a specific url (
 CONFIGURATION:
 -------------
 
-You have to update variable correct value of data base server name + port  in following files :
+You have to update variable correct value of data base server name + port  in following files:
+
   - TestPortal/testsResults.js
   - TestPortal/database.js
+  
   For instance : dataBaseUrlWithProxy = "http://nuxcmcwkit.com:8899"
 
  - TestSelenium/Dbutilities.java
 
-	// Constants to specify
-	private final static String SERVER_URL="http://URL_TO_DEFINE"; // For instance: http://nuxcmcwkit.com
+    // Constants to specify
+    private final static String SERVER_URL="http://URL_TO_DEFINE"; // For instance: http://nuxcmcwkit.com
+    
     private final static String PORT="XXXX"; // For instance: "8899"
     
-	static String MAC = "MY_MAC_ADRESS"; // For instance: "3C:62:00:7B:47:02";
+    static String MAC = "MY_MAC_ADRESS"; // For instance: "3C:62:00:7B:47:02";
 	
-	static String MW = "MY_MIDDLEWARE";  // For instance: "Linux";
+    static String MW = "MY_MIDDLEWARE";  // For instance: "Linux";
 	
-	static String MVER = "MY_VERSION";   // For instance: "stable-17.0-50.102";
+    static String MVER = "MY_VERSION";   // For instance: "stable-17.0-50.102";
 	
-	static String MODEL = "MY_MODEL";    // For instance: "bcm_7252";
+    static String MODEL = "MY_MODEL";    // For instance: "bcm_7252";
 	
-	// end to specify 
+    // end to specify 
 	
-	public static String DB_SERVER = SERVER_URL + PORT;
+   public static String DB_SERVER = SERVER_URL + PORT;
 
   and also configure the correct IP and proxy of your device where you will run the tests.
   
@@ -211,17 +217,17 @@ if not, at first time, you have to run your own server as follows:
 
 4. Start the database engine MongoDB
 
-  4.1.	Start a command line console
+     4.1. Start a command line console
   
-  4.2.	Go into the mongoDB installation folder: D:\Program Files\mongodb.
+     4.2. Go into the mongoDB installation folder: D:\Program Files\mongodb.
   
-  4.3.	Create a folder named data
+     4.3. Create a folder named data
   
-  4.4.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+     4.4. Go into the binary mongodb folder : D:\Program Files\mongodb\bin
   
-  4.5.	Launch the engine: mongod --dbpath ..\data
+     4.5. Launch the engine: mongod --dbpath ..\data
   
-  4.6.	When mongodb is started, you will have the following messages at the end :
+     4.6. When mongodb is started, you will have the following messages at the end :
   
    ....
    Wed Nov 20 14:18:55.767 [initandlisten] waiting for connections on port 27017
@@ -232,13 +238,13 @@ if not, at first time, you have to run your own server as follows:
 
   There are two ways to launch the Test Server. This step allows you to start it as a foreground process.
   
-  5.1.	Start a command line console
+    5.1. Start a command line console
   
-  5.2.	Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
+    5.2. Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
   
-  5.3.	Enter the command : node index.js
+    5.3. Enter the command : node index.js
   
-  5.4.	Expected output in the console :
+    5.4. Expected output in the console :
   
      **** Test Server version  0.1.1  is started on port  8899  ****
      The database is now connected and opened on the IP address : 172.21.204.219
@@ -256,61 +262,62 @@ In the mongodb console you will have:
 
   This step explains how to setup the Test Server as a daemon, needed in production mode.
   
-  6.1. Start a command line console  
+     6.1. Start a command line console  
   
-  6.2. Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
+     6.2. Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
   
-  6.3. Enter the following command
-       forever start --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
+     6.3. Enter the following command
+          forever start --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
       
-  6.4.	To check the status, you can enter the command :
+     6.4. To check the status, you can enter the command :
   
         forever list
      
          In the list you should have the command line previously entered with its forever pid
     
-   6.5.	To restart the server if needed
+     6.5. To restart the server if needed
    
-    forever restart --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
+      forever restart --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
 
   
   7. Start the database as a daemon
   
    As the data base may be already started, this one shall be shutdown correctly:
    
-   7.1.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+     7.1. Go into the binary mongodb folder : D:\Program Files\mongodb\bin
    
-   7.2.	Shutdown the data base with the command :
+     7.2. Shutdown the data base with the command :
         mongod --shutdown --dbpath ..\data
 	
-   7.3.	Restart the data base as a daemon process
+     7.3. Restart the data base as a daemon process
           mongod --fork --dbpath ..\data --logpath ..\data\mongodb.log
 
 In case of error:
 
-   a. Go into your database folder, for instance D:\Program Files\mongodb\data
+     a. Go into your database folder, for instance D:\Program Files\mongodb\data
    
-   b. Remove the .lock file
+     b. Remove the .lock file
    
-   c. Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+     c. Go into the binary mongodb folder : D:\Program Files\mongodb\bin
    
-   d. Enter the command :
-     mongod --repair --dbpath ..\data
+     d. Enter the command :
+       mongod --repair --dbpath ..\data
 
 
 8. Start the client test portal
 
-  8.1.	Open Chrome web browser
+    8.1. Open Chrome web browser
   
-  8.2.	Go to http:\\localhost:8899\TestPortal\index.html  
+    8.2. Go to http:\\localhost:8899\TestPortal\index.html  
 
-   8899 is the port where test server has been started.
+      8899 is the port where test server has been started.
 
 
 RUNING THE TESTS:
 ---------------
 
 STEP 2°) Copy the binary and webdriver (cross compiled)  on your device and launch the Browser.
+
   • The fact to launch the browser has for effect to initialize WEBDRIVER.
 
 STEP 3°) Run Webdriver test using java
