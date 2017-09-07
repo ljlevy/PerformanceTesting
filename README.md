@@ -1,9 +1,10 @@
 # PerformanceTesting
 How to compare performances of different devices, middelwares and browsers ?
+
 You have here all the code :
-  To run performances tests using test benchmarks (fps, score, ...)coded in HTML5.
-  To Manage the start of the tests using webdriver (click on buttons ...), analyse results and populate them in a Mongo data base.
-  Comparing the results for different devices and type of tests using google chart bargraph
+  - To run performances tests using test benchmarks (fps, score, ...)coded in HTML5.
+  - To Manage the start of the tests using webdriver (click on buttons ...), analyse results and populate them in a Mongo data base.
+  - To compare the results for different devices and type of tests using google chart bargraph
 
 OVERVIEW:
 _________
@@ -177,8 +178,10 @@ __________________
 STEP 1°) Mongo database and node database server must be running in serverName processes.
 
 if not, at first time, you have to run your own server as follows:
+
 0. The source repository of Test server is available in TestServer directory.
     Clone it.
+    
 1.	Download node.js here: https://nodejs.org/download/ and install it, for instance, in D:\Program Files\nodejs. 
 Your system environment path variable will be updated automatically.
 
@@ -224,16 +227,20 @@ In the mongodb console you will have:
   This step explains how to setup the Test Server as a daemon, needed in production mode.
   
   6.1.	Start a command line console  
+  
   6.2.	Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
+  
   6.3.	Enter the following command
       forever start --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
       
   6.4.	To check the status, you can enter the command :
+  
      forever list
      
       In the list you should have the command line previously entered with its forever pid
     
    6.5.	To restart the server if needed
+   
     forever restart --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
 
   
@@ -255,6 +262,7 @@ In case of error:
 
 
 8. Start the client test portal
+
   8.1.	Open Chrome web browser
   8.2.	Go to http:\\localhost:8899\TestPortal\index.html  
 
@@ -269,13 +277,14 @@ STEP 2°) Copy the binary and webdriver (cross compiled)  on your device and lau
 
 STEP 3°) Run Webdriver test using java
 
-•	You need to have a java version >= jre1.7.0_51 .
+  •	You need to have a java version >= jre1.7.0_51 .
 
 •	You can install such a version in your linux station locally : /local/eclipse/jre1.7.0_51/bin and make java pointed on /local/eclipse/jre1.7.0_51/bin/java
 
 There are 2 ways to do that:
 
-A°) Run all the tests using a single instruction 
+A°) Run all the tests using a single instruction.
+
   syntax is the following : java -jar <test.jar> <config.xml>
   Where :
   - test.jar is the jar you have extracted from all Java classes
@@ -290,11 +299,11 @@ A°) Run all the tests using a single instruction
      o	version : The middleware version 
      o	model: The device model used.
    <database url>
-   •	
+    •	
       o	url: The url of the data base . http://serverName:8899  
-      <testcase>
+        <testcase>
    •	
-     o	List of tests to run using java. Each test make a wget on a url and has a JAVA class.
+      o	List of tests to run using java. Each test make a wget on a url and has a JAVA class.
 
 For instance :
 /local/eclipse/jre1.7.0_51/bin/java -jar ~/test_suite/src/test.jar  ~/test_suite/config.xml
@@ -324,6 +333,7 @@ For instance :
 </TEST>
 
 B°) You can run one test in single mode using testNg and eclipse
+
   •	Manage Run configurations :
      Select the Java Application and add Main Class
      
@@ -339,5 +349,7 @@ written in javascript.
 
 You can access to them through: 
 http://serverName:8899/TestPortal/index.html
-http://nuxcmcwkit.fr.nds.com:8899/TestPortal/testsResults.html
-http://nuxcmcwkit.fr.nds.com:8899/TestPortal/database.html
+
+http://serverName:8899/TestPortal/testsResults.html
+
+http://serverName:8899/TestPortal/database.html
