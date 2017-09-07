@@ -33,6 +33,7 @@ The tools available to be done:
 •	Selenium which includes the WebDriver API and makes it easy to write tests in Java
 
 •	Mongodb for the management of a simple database.
+
 MongoDB is a NoSQL data storage system, SchemaLess. The advantage is that it is not necessary to do a SQL script to create and define the data structure that powers the database.
 A user can easily add new data to this object later
 
@@ -52,15 +53,20 @@ This tutorial is also valid for an installation on a LINUX platform. You just ne
 
 The GIT source repository contains following directories:
 
-•	TestPortal contains all information concerning performances tests passed on some devices, to be able to compare performances according to software version (fps, time, score ...)
+•  TestPortal contains all information concerning performances tests passed on some devices, 
+   to be able to compare performances according to software version (fps, time, score ...)
+   
    It is available at: http://serverName:8899/TestPortal/testsResults.html
 
-•	TestServer is based on nodes architecture and allows to route and populate mongo database with tests results.
+• TestServer is based on nodes architecture and allows to route and populate mongo database with tests results.
 
-•	TestSuite is a suite of HTML files based on JavaScript (fpsmeter.js ...) able to make some performance measurement (fps, write values in the DOM ...).
+• TestSuite is a suite of HTML files based on JavaScript (fpsmeter.js ...) able to make some performance measurement (fps, write values in the DOM ...).
+
 It allows for instance to get html test pages from external links or modify them locally to add some specificities (stats.js for fps ...)
  
-•	TestSelenium is a collection of JAVA class that allows to get information on some URL and send the results to the data base using json format.
+• TestSelenium is a collection of JAVA class that allows to get information on some URL and send the results to the data base 
+   using json format.
+   
 It is based on eclipse browser, TestNg add-in and Junit.
 It uses WEBDRIVER to take control of the device and populate the tests database using a test framework coded in JAVA.
 
@@ -248,22 +254,29 @@ In the mongodb console you will have:
    As the data base may be already started, this one shall be shutdown correctly:
    
    7.1.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+   
    7.2.	Shutdown the data base with the command :
         mongod --shutdown --dbpath ..\data
+	
    7.3.	Restart the data base as a daemon process
-        mongod --fork --dbpath ..\data --logpath ..\data\mongodb.log
+          mongod --fork --dbpath ..\data --logpath ..\data\mongodb.log
 
 In case of error:
-   a.	Go into your database folder, for instance D:\Program Files\mongodb\data
-   b.	Remove the .lock file
-   c.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
-   d.	Enter the command :
+
+   a. Go into your database folder, for instance D:\Program Files\mongodb\data
+   
+   b. Remove the .lock file
+   
+   c. Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+   
+   d. Enter the command :
      mongod --repair --dbpath ..\data
 
 
 8. Start the client test portal
 
   8.1.	Open Chrome web browser
+  
   8.2.	Go to http:\\localhost:8899\TestPortal\index.html  
 
    8899 is the port where test server has been started.
@@ -273,19 +286,20 @@ RUNING THE TESTS:
 ________________
 
 STEP 2°) Copy the binary and webdriver (cross compiled)  on your device and launch the Browser.
-  •	The fact to launch the browser has for effect to initialize WEBDRIVER.
+  • The fact to launch the browser has for effect to initialize WEBDRIVER.
 
 STEP 3°) Run Webdriver test using java
 
-  •	You need to have a java version >= jre1.7.0_51 .
+  • You need to have a java version >= jre1.7.0_51 .
 
-•	You can install such a version in your linux station locally : /local/eclipse/jre1.7.0_51/bin and make java pointed on /local/eclipse/jre1.7.0_51/bin/java
+  • You can install such a version in your linux station locally :
+    /local/eclipse/jre1.7.0_51/bin and make java pointed on /local/eclipse/jre1.7.0_51/bin/java
 
-There are 2 ways to do that:
+   There are 2 ways to do that:
 
-A°) Run all the tests using a single instruction.
+  A°) Run all the tests using a single instruction.
 
-  syntax is the following : java -jar <test.jar> <config.xml>
+  Syntax is the following : java -jar <test.jar> <config.xml>
   Where :
   - test.jar is the jar you have extracted from all Java classes
   - config.xml is a file that indicates information on the middleware, STB and the list of the tests to run.  
@@ -298,47 +312,49 @@ A°) Run all the tests using a single instruction.
      o	middleware: The middleware you are using.
      o	version : The middleware version 
      o	model: The device model used.
+     
    <database url>
     •	
       o	url: The url of the data base . http://serverName:8899  
         <testcase>
-   •	
+    •	
       o	List of tests to run using java. Each test make a wget on a url and has a JAVA class.
 
-For instance :
-/local/eclipse/jre1.7.0_51/bin/java -jar ~/test_suite/src/test.jar  ~/test_suite/config.xml
+  For instance :
+  /local/eclipse/jre1.7.0_51/bin/java -jar ~/test_suite/src/test.jar  ~/test_suite/config.xml
 
-<TEST> 
-<stbconfig mac="10:5F:49:91:44:90" url="myDeviceIP:9517" middleware="myMiddleware" version="myVersion" model="myModel"/>
-<database url="http://serverName:8899" />
-<testcase>
-<class name="demo2.SunSpiderTest"/>
-<class name="demo2.Test_canvasList"/>
-<class name="demo2.Test_CanvasMoving_points0"/>
-<class name="demo2.Test_CanvasMoving_points1"/>
-<class name="demo2.Test_CanvasMoving_points2"/>
-<class name="demo2.Test_CanvasMoving_points3"/>
-<class name="demo2.Test_CanvasMoving_points4"/>
-<class name="demo2.Test_CanvasMoving_points5"/>
-<class name="demo2.Test_CanvasMoving_points6"/>
-<class name="demo2.Test_CanvasMoving_rectangles"/>
-<class name="demo2.TestCraftMind"/>
-<class name="demo2.Test_css3List"/>
-<class name="demo2.Test_css3VerticalList"/>
-<class name="demo2.TestWebglGeometry"/>
-<class name="demo2.TestWebglLensFlares"/> 
-<class name="demo2.TestCss3Score"/> 
-<class name="demo2.TestHtml5Score"/> 
-</testcase>
-</TEST>
+ <TEST> 
+ <stbconfig mac="10:5F:49:91:44:90" url="myDeviceIP:9517" middleware="myMiddleware" version="myVersion" model="myModel"/>
+ <database url="http://serverName:8899" />
+ <testcase>
+ <class name="demo2.SunSpiderTest"/>
+ <class name="demo2.Test_canvasList"/>
+ <class name="demo2.Test_CanvasMoving_points0"/>
+ <class name="demo2.Test_CanvasMoving_points1"/>
+ <class name="demo2.Test_CanvasMoving_points2"/>
+ <class name="demo2.Test_CanvasMoving_points3"/>
+ <class name="demo2.Test_CanvasMoving_points4"/>
+ <class name="demo2.Test_CanvasMoving_points5"/>
+ <class name="demo2.Test_CanvasMoving_points6"/>
+ <class name="demo2.Test_CanvasMoving_rectangles"/>
+ <class name="demo2.TestCraftMind"/>
+ <class name="demo2.Test_css3List"/>
+ <class name="demo2.Test_css3VerticalList"/>
+ <class name="demo2.TestWebglGeometry"/>
+ <class name="demo2.TestWebglLensFlares"/> 
+ <class name="demo2.TestCss3Score"/> 
+ <class name="demo2.TestHtml5Score"/> 
+ </testcase>
+ </TEST>
 
-B°) You can run one test in single mode using testNg and eclipse
+ B°) You can run one test in single mode using testNg and eclipse
 
-  •	Manage Run configurations :
+  • Manage Run configurations :
      Select the Java Application and add Main Class
      
-  •	Add testng plugin :
-     Go to help->install new software form eclipse and then tape : 
+  • Add testng plugin :
+      Go to help->install new software form eclipse and then tape : 
+      
       url : http://beust.com/eclipse
       name: testng
 
