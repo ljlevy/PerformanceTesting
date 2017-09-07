@@ -348,6 +348,7 @@ Test results are then published in the mongo data base and you can compare them 
 written in javascript.
 
 You can access to them through: 
+
 http://serverName:8899/TestPortal/index.html
 
 http://serverName:8899/TestPortal/testsResults.html
