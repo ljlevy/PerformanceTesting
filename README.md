@@ -7,7 +7,7 @@ You have here all the code :
   - To compare the results for different devices and type of tests using google chart bargraph
 
 OVERVIEW:
-_________
+--------
 
 With the emergence of HTML5, new Web standards have emerged: 
 CSS-3D, SVG, Web-GL, Canvas2D, Web Socket, Local Storage...
@@ -30,33 +30,37 @@ This tutorial provides a simple tool to control the DOM of HTML pages (click on 
 and publish the results in a database.
 
 The tools available to be done:
-•	Selenium which includes the WebDriver API and makes it easy to write tests in Java
 
-•	Mongodb for the management of a simple database.
+• Selenium which includes the WebDriver API and makes it easy to write tests in Java
 
-MongoDB is a NoSQL data storage system, SchemaLess. The advantage is that it is not necessary to do a SQL script to create and define the data structure that powers the database.
+• Mongodb for the management of a simple database.
+
+MongoDB is a NoSQL data storage system, SchemaLess. 
+The advantage is that it is not necessary to do a SQL script to create and define the data structure that powers the database.
 A user can easily add new data to this object later
 
 Concerning the display of the results:
 The difficulty is to find a simple tool to visualize the data of a database and be able to display them graphically.
 The tools available to be done are:
 
-•	nodejs: provides the ability to run JavaScript on remote server outside the browser.
-It is a free and JavaScript-based software platform that contains an integrated HTTP server library,
-making it possible to run a web server without the need for external software such as Apache or Lighttpd.
+• nodejs: provides the ability to run JavaScript on remote server outside the browser.
 
-•	googlechart: Standard google API for viewing data.
+  It is a free and JavaScript-based software platform that contains an integrated HTTP server library,
+  making it possible to run a web server without the need for external software such as Apache or Lighttpd.
 
-In this tutorial you will learn how to install and launch the Test Server based on nodejs and mongo database and use the tool to populate the tests results using Java and WebdriverSelenium on a PC environment. 
+• googlechart: Standard google API for viewing data.
+
+In this tutorial you will learn how to install and launch the Test Server based on nodejs 
+and mongo database and use the tool to populate the tests results using Java and WebdriverSelenium on a PC environment. 
 
 This tutorial is also valid for an installation on a LINUX platform. You just need to respect the unix convention for the files paths. 
 
 The GIT source repository contains following directories:
 
-•  TestPortal contains all information concerning performances tests passed on some devices, 
-   to be able to compare performances according to software version (fps, time, score ...)
+• TestPortal contains all information concerning performances tests passed on some devices, 
+  to be able to compare performances according to software version (fps, time, score ...)
    
-   It is available at: http://serverName:8899/TestPortal/testsResults.html
+  It is available at: http://serverName:8899/TestPortal/testsResults.html
 
 • TestServer is based on nodes architecture and allows to route and populate mongo database with tests results.
 
@@ -137,7 +141,7 @@ Each Java class implements a specific test, that means going to a specific url (
 	}
 
 CONFIGURATION:
-_______________
+-------------
 
 You have to update variable correct value of data base server name + port  in following files :
   - TestPortal/testsResults.js
@@ -151,9 +155,13 @@ You have to update variable correct value of data base server name + port  in fo
     private final static String PORT="XXXX"; // For instance: "8899"
     
 	static String MAC = "MY_MAC_ADRESS"; // For instance: "3C:62:00:7B:47:02";
-	static String MW = "MY_MIDDLEWARE";  // For instance: "rdk2-1 IH";
+	
+	static String MW = "MY_MIDDLEWARE";  // For instance: "Linux";
+	
 	static String MVER = "MY_VERSION";   // For instance: "stable-17.0-50.102";
+	
 	static String MODEL = "MY_MODEL";    // For instance: "bcm_7252";
+	
 	// end to specify 
 	
 	public static String DB_SERVER = SERVER_URL + PORT;
@@ -177,7 +185,7 @@ You have to update variable correct value of data base server name + port  in fo
 
 
 CONFIGURING SERVER:
-__________________
+-----------------
  
  Several steps must be followed to be able to run webdriver tests and populate the TestPortal data base.
 
@@ -188,40 +196,55 @@ if not, at first time, you have to run your own server as follows:
 0. The source repository of Test server is available in TestServer directory.
     Clone it.
     
-1.	Download node.js here: https://nodejs.org/download/ and install it, for instance, in D:\Program Files\nodejs. 
-Your system environment path variable will be updated automatically.
+1. Download node.js here: https://nodejs.org/download/ and install it, for instance, in D:\Program Files\nodejs. 
 
-2.	Download MongoDB here: https://www.mongodb.com/download-center#enterprise  
-     extract the ZIP into for instance D:\Program Files\mongodb.
+    Your system environment path variable will be updated automatically.
+
+2. Download MongoDB here: https://www.mongodb.com/download-center#enterprise  
+
+   Extract the ZIP into for instance D:\Program Files\mongodb.
      
-3.	Install the Mongoose.js API :
+3. Install the Mongoose.js API :
    a.	Start a command line console
    b.	Enter the command : npm install mongoose
 
 
 4. Start the database engine MongoDB
+
   4.1.	Start a command line console
+  
   4.2.	Go into the mongoDB installation folder: D:\Program Files\mongodb.
+  
   4.3.	Create a folder named data
+  
   4.4.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
+  
   4.5.	Launch the engine: mongod --dbpath ..\data
+  
   4.6.	When mongodb is started, you will have the following messages at the end :
+  
    ....
    Wed Nov 20 14:18:55.767 [initandlisten] waiting for connections on port 27017
    Wed Nov 20 14:18:55.870 [websvr] admin web console waiting for connections on po
    rt 28017
    
 5. Start the Test Server
+
   There are two ways to launch the Test Server. This step allows you to start it as a foreground process.
   
   5.1.	Start a command line console
+  
   5.2.	Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
+  
   5.3.	Enter the command : node index.js
+  
   5.4.	Expected output in the console :
+  
      **** Test Server version  0.1.1  is started on port  8899  ****
      The database is now connected and opened on the IP address : 172.21.204.219
 
 In the mongodb console you will have:
+
    Wed Nov 20 14:26:20.746 [initandlisten] connection accepted from 172.21.204.219:58509 #1 (1 connection now open)
    Wed Nov 20 14:26:20.747 [initandlisten] connection accepted from 172.21.204.219:58510 #2 (2 connections now open)
    Wed Nov 20 14:26:20.748 [initandlisten] connection accepted from 172.21.204.219:58511 #3 (3 connections now open)
@@ -230,20 +253,21 @@ In the mongodb console you will have:
 
 
 6. Start the Test Server as a daemon
+
   This step explains how to setup the Test Server as a daemon, needed in production mode.
   
-  6.1.	Start a command line console  
+  6.1. Start a command line console  
   
-  6.2.	Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
+  6.2. Go into the GIT repository TestServer folder : D:\GIT\benchmarks\TestServer
   
-  6.3.	Enter the following command
-      forever start --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
+  6.3. Enter the following command
+       forever start --minUptime 1000 --spinSleepTime 1000 -a -o out-test.log -e err-test.log index.js
       
   6.4.	To check the status, you can enter the command :
   
-     forever list
+        forever list
      
-      In the list you should have the command line previously entered with its forever pid
+         In the list you should have the command line previously entered with its forever pid
     
    6.5.	To restart the server if needed
    
@@ -251,6 +275,7 @@ In the mongodb console you will have:
 
   
   7. Start the database as a daemon
+  
    As the data base may be already started, this one shall be shutdown correctly:
    
    7.1.	Go into the binary mongodb folder : D:\Program Files\mongodb\bin
@@ -283,7 +308,7 @@ In case of error:
 
 
 RUNING THE TESTS:
-________________
+---------------
 
 STEP 2°) Copy the binary and webdriver (cross compiled)  on your device and launch the Browser.
   • The fact to launch the browser has for effect to initialize WEBDRIVER.
@@ -359,9 +384,11 @@ STEP 3°) Run Webdriver test using java
       name: testng
 
 
+VISUALISATION OF RESULTS:
+-------------------------
 
-Test results are then published in the mongo data base and you can compare them using the test Portal
-written in javascript.
+Test results are then published in the mongo data base and you can compare them 
+using the test Portal written in javascript.
 
 You can access to them through: 
 
