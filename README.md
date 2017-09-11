@@ -379,15 +379,20 @@ STEP 3°) Run Webdriver test using java
    <stbconfig>
    •	
      o	mac: The MAC address of your device. It will be used to identify your tests in the Test Portal DataBase.
+	
      o	url: The IP address of your STB + WEBDRIVER port
+     
      o	middleware: The middleware you are using.
+     
      o	version : The middleware version 
+     
      o	model: The device model used.
      
    <database url>
     •	
       o	url: The url of the data base . http://serverName:8899  
         <testcase>
+		
     •	
       o	List of tests to run using java. Each test make a wget on a url and has a JAVA class.
 
