@@ -1,0 +1,18 @@
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1000;
+	display: none;
+	background-image: url("../loader.gif");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-color: rgba(255,255,255,1);
+}
+
+td, th {
+	text-align: center
+}

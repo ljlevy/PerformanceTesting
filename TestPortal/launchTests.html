@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Run perf tests</title>
+        
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/runtests.css" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui.theme.min.css">
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/testsResults.js"></script>
+		
+	<script>
+        function buildAndTest() 
+        {
+	   //Get repo
+	    var repo = document.getElementById("repoList").value;
+		  
+	   //Get profile
+	   var profil = document.getElementById("profilList").value;
+		  
+	   //Get MW
+	   var MW = document.getElementById("MWList").value;
+		  
+	   //Get Target
+	   var target = document.getElementById("targetList").value;
+		        
+         }
+        </script> 
+    </head>
+
+    <body>
+    <div id="divSelectTests" style="float: left; width: 30%;border: 1px solid black;vertical-align: top">
+        <p> Select the tests: </p>
+    
+        <select id="testSelector" class="testSelector" multiple></select>
+    </div>  
+    
+    <div id="divBuildTests" style="margin-left: 40%; border: 1px solid black;vertical-align: top">
+        <p> Git repo clone: 
+        <select id="repoList">
+            <option value="Latest">Latest</option>
+            <option value="Tag">Tag</option>
+        </select>
+        </p>
+
+        <p> Profile: 
+        <select id="profilList">
+            <option value="Profile_1">Profile_1</option>
+            <option value="Profile_2">Profile_2</option>
+        </select>
+        </p>
+        
+        <p> Middleware/Plugin: 
+        <select id="MWList">
+            <option value="Middleware_1">Middleware_1</option>
+            <option value="Middleware_2">Middleware_2</option>
+            <option value="Middleware_3">Middleware_3</option>
+        </select>
+        </p>
+
+        <p> Target: 
+        <select id="targetList">
+            <option value="TARGET_1">TARGET_1</option>
+            <option value="TARGET_2">TARGET_2</option>
+            <option value="TARGET_3">TARGET_3</option>
+            <option value="TARGET_4">TARGET_4</option>
+        </select>
+        </p>
+        
+        <form action="action_page.php">
+            Version Naming (displayed in perf. portal):<br>
+            <input type="text" name="Version" value="demo portal">
+            <br><br>
+        </form> 
+        
+        <input type="button" onclick="buildAndTest()" value="Build and Tests">
+        <input type="button" onclick="" value="Tests Only">
+    </div>
+    
+    
+    </div>
+    
+    </body>
+</html>

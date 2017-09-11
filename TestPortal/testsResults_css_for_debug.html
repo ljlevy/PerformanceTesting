@@ -1,0 +1,248 @@
+<html>
+	<head>
+		<!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<link rel="stylesheet/less" type="text/css" href="css/default.less" />
+		<script src="lib/less.js" type="text/javascript"></script>
+		<script src="lib/jquery.js"></script>
+		<script src="js/hints.js"></script>
+
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script>
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+
+		<script type="text/javascript">
+		function ConvertPicture() 
+		{
+		   if (false == ImageConverted) 
+		   {
+			if (wrapperScore != null) 
+			{
+			   toImg(document.getElementById('chart_div_score'), document.getElementById('chart_div_score'));
+			}
+			if (wrapperJet != null) 
+			{
+			   toImg(document.getElementById('chart_div_score_jet'), document.getElementById('chart_div_score_jet'));
+			}
+			if (wrapperFps != null) 
+			{
+			   toImg(document.getElementById('chart_div_fps'), document.getElementById('chart_div_fps'));
+			}
+			if (wrapperDuration != null) 
+			{
+			    toImg(document.getElementById('chart_div_ms'), document.getElementById('chart_div_ms'));
+			}
+			if (wrapperPassed != null) 
+			{
+			   toImg(document.getElementById('chart_div_passed'), document.getElementById('chart_div_passed'));
+			}
+			if (wrapperPassedLayout != null) 
+			{
+			   toImg(document.getElementById('chart_div_passed_layout'), document.getElementById('chart_div_passed_layout'));
+			}
+			if (wrapperOrange != null) 
+			{
+			   toImg(document.getElementById('chart_div_score_orange'), document.getElementById('chart_div_score_orange'));
+			}
+
+			// Memorize concersion has been done
+			ImageConverted = true;
+		     }
+
+		   }
+
+		  function SaveIdPicture(id) 
+		  {
+		     document.getElementById('download').href = "" + document.images[i].src + "";
+		  }
+
+		  function SavePicture() 
+		  {
+
+			//var w  =  window.open('','saving.htm');
+
+			//document.getElementById('dataPictures').value=""+document.images[0].src+"";
+
+			for (var i = 0; i < document.images.length; i++) 
+			{
+
+			    console.log(" images are : " + document.images[i].src + " ");
+
+			    //w.document.body.innerHTML =" <img src=\"+document.images[i].src+\"> <br>   ";
+
+			    //imgOrURL =document.images[i].src;
+			    //document.images[i].src.execCommand("SaveAs");
+
+			    //document.execCommand('SaveAs', false, 'default.html');
+
+			    /*
+			    w = window.open(imgOrURL);
+			    setTimeout('w.resizeTo(0, 0);',1000);
+			    setTimeout('w.moveTo(0, 0);',2000);
+			    setTimeout('w.document.execCommand("SaveAs")', 5000);
+			    */
+			    //setTimeout('w.close()',10000);
+
+			    //w.addEventListener("onload",function(){w.resizeTo(0, 0)});
+			}
+
+			/*
+			 if (wrapperScore != null) { saveAsImg(document.getElementById('chart_div_score'));  }
+			if (wrapperJet != null)   { saveAsImg(document.getElementById('chart_div_score_jet')); }
+
+			if (wrapperFps != null)   { saveAsImg(document.getElementById('chart_div_fps')); }
+			if (wrapperDuration != null ) { saveAsImg(document.getElementById('chart_div_ms')); }
+			if (wrapperPassed != null ) { saveAsImg(document.getElementById('chart_div_passed')); }
+			if (wrapperOrange != null) { saveAsImg(document.getElementById('chart_div_score_orange')); }
+			 */
+		   }
+
+		</script>
+	<style type="text/css">
+		.test {
+			position: relative;
+			margin: 10px;
+			border: 5px  solid yellow;
+			width: 2048px;
+			height:100%;
+			display:block;
+		}
+		.testLeft  {
+			position: relative;
+			float:left;
+			margin:0 auto;
+			border: solid 5px green;
+		}
+		.testRight {
+			position: relative;
+			float:left;
+			margin:0 auto;
+			border: solid 5px red;
+		}
+	</style>
+	</head>
+
+	<body>
+		<h1>Performance tests portal</h1>
+		<!--nav-->
+		<ul class="nav2">
+			<li>
+				<a href="launchTests.html" class="hintanchor" onMouseover="showhint('Select the Device to launch portal tests', this, event, '200px')">Launch tests</a>
+			</li>
+			<li>
+				<a href="testsResults.html" class="hintanchor" onMouseover="showhint('Show test results by Device', this, event, '200px')">Tests results</a>
+			</li>
+			<li>
+				<a href="database.html" class="hintanchor" onMouseover="showhint('Administrate middleware, version, model and mac Adress of the device', this, event, '200px')" >Database administration</a>
+			</li>
+
+		</ul>
+		<br>
+		<!--/nav-->
+		<button id="ConvertPicture" onclick="ConvertPicture()">
+			Convert to image
+		</button>
+		&nbsp; &nbsp; <a onclick="SavePicture()"> - </a><!---a id="download" onclick="SaveIdPicture(0)" download="score.png"---><!---/a--->
+
+		<br>
+
+		<div id="TestLabel" class="testLabel">
+			Test
+		</div>
+		<br>
+		<table>
+			<tr>
+				<td align="center"><font size="+2"><u>Add a Test to compare</u></font>
+				<br>
+				<br>
+				<select id="testSelector" class="testSelector" multiple></select></td>
+				<td>
+				<input id="AddButtonTest" type="button" value="Add an item -->" class="btn" style="background-color:rgb(255,255,204);color:blue;font-size:18px">
+				<br>
+				<br>
+				<input id="DeleteButtonTest" type="button" value="<-- Remove an item" class="btn" style="background-color:rgb(255,204,255);color:red;font-size:18px">
+				</td>
+				<td align="center"><font size="+2"><u>Remove a test from comparison</u></font>
+				<br>
+				<br>
+				<select id="selectTestList" class="selectTestList" multiple></select></td>
+			</tr>
+
+		</table>
+
+		<br>
+		<br>
+
+		<div id="deviceLabel" class="deviceLabel">
+			Device
+		</div>
+		<br>
+		<table>
+			<tr>
+				<td align="center"><font size="+2"><u>Add a middleware to compare</u></font>
+				<br>
+				<br>
+				<select id="deviceSelector" class="deviceSelector" multiple></select></td>
+				<td>
+				<p id="filterDevice">
+					Only REL
+					<input type="checkbox" id="onlyRel">
+					<input id="showRel" type="button" value="Filtering">
+				</p>
+				<input id="AddButton" type="button" value="Add an item -->" class="btn" style="background-color:rgb(255,255,204);color:blue;font-size:18px">
+				<br>
+				<br>
+				<input id="DeleteButton" type="button" value="<-- Remove an item" class="btn" style="background-color:rgb(255,204,255);color:red;font-size:18px">
+				</td>
+				<td align="center"><font size="+2"><u>Remove a middleware from comparison</u></font>
+				<br>
+				<br>
+				<select id="deviceList" class="deviceList" multiple></select></td>
+			</tr>
+		</table>
+
+		<script src="js/mytestsResults.js"></script>
+
+		<section>
+			<div id="resultSection">
+
+				<p id="updateChart">
+					Extended Results
+					<input type="checkbox" id="extRes">
+					<input id="showButton" type="button" value="Show results" style="background-color:rgb(204,255,204);color:green;font-size:18px">
+				</p>
+				<div id="score" class="test">
+					<div id="chart_div_score"  class="testLeft"></div>
+					<div id="table_sort_div_score"  class="testRight"></div>
+				</div>
+				<div id="jet" class="test">
+					<div id="chart_div_score_jet" class="testLeft"></div>
+					<div id="table_sort_div_score_jet" class="testRight"></div>
+				</div>
+				<div id="fps" class="test">
+					<div id="chart_div_fps" class="testLeft"></div>
+					<div id="table_sort_div_fps" class="testRight"></div>
+				</div>
+				<div id="ms" class="test">
+					<div id="chart_div_ms" class="testLeft"></div>
+					<div id="table_sort_div_ms" class="testRight"></div>
+				</div>
+				<div id="passed" class="test">
+					<div id="chart_div_passed" class="testLeft"></div>
+					<div id="table_sort_div_passed" class="testRight"></div>
+				</div>
+				<div id="layout" class="test">
+					<div id="chart_div_passed_layout" class="testLeft"></div>
+					<div id="table_sort_div_passed_layout" class="testRight"></div>
+				</div>
+				<div id="orange" class="test">
+					<div id="chart_div_score_orange" class="testLeft"></div>
+					<div id="table_sort_div_score_orange" class="testRight"></div>
+				</div>
+
+				<div id="MyCanvasFps" ></div>
+			</div>
+
+		</section>
+
+	</body>
+</html>

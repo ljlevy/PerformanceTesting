@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Database manager</title>
+		<link rel="stylesheet/less" type="text/css" href="css/default.less" />
+		<link rel="stylesheet" type="text/css" href="css/database.css" />
+		<link rel="stylesheet" type="text/css" href="lib/datatable/media/css/jquery.dataTables.css" />
+		<script src="lib/less.js" type="text/javascript"></script>
+		<script src="lib/jquery.js" ></script>
+		<script src="lib/serialize.js" ></script>
+		<script src="js/hints.js"></script>
+		<script type="text/javascript" charset="utf8" src="lib/datatable/media/js/jquery.dataTables.js"></script>
+		<script src="js/database.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<h1>Performance tests portal</h1>
+		<!--nav-->
+		<ul class="nav2">
+			<li>
+				<a href="launchTests.html" class="hintanchor" onMouseover="showhint('Select the Device to launch portal tests', this, event, '200px')">Launch tests</a>
+			</li>
+			<li>
+				<a href="testsResults.html" class="hintanchor" onMouseover="showhint('Show test results by Device', this, event, '200px')">Tests results</a>
+			</li>
+			<li>
+				<a href="database.html"  class="hintanchor" onMouseover="showhint('Administrate middleware, version, model and mac Adress of the Device', this, event, '200px')">Database administration</a>
+			</li>
+		</ul>
+		<!--/nav--->
+		<section>
+			<div id="buttons" style="margin-left:40px;">
+				<p style="margin:2px; font-style: underline; font-weight: bold; float:left;">
+					Choose your table:
+				</p>
+			</div>
+			<div id="tab">
+				
+			</div>
+		</section>
+		<div id="loader"></div>
+	</body>
+</html>

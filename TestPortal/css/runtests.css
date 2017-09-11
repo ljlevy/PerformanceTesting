@@ -1,0 +1,172 @@
+body {
+	margin: 50px;
+}
+
+.test {
+	position: relative;
+	margin: 0px;
+	padding-right: 20px;
+	padding-left: 10px;
+	float: left;
+	width: calc(100% - 30px);
+	/*height: auto;*/
+	/*border: 5px solid yellow;*/
+	/*display: table-cell;*/
+	vertical-align: middle;
+}
+
+.testLeft {
+	position: relative;
+	margin: auto;
+	/*max-width: 70%;*/
+	/*border: 5px solid green;*/
+	display: inline-block;
+}
+
+.testRight {
+	position: relative;
+	float: left;
+	/*border: 5px solid red;*/
+	margin: auto;
+	/*max-width: 30%;*/
+}
+
+.buttonAction {
+	background-color: rgb(204,255,204);
+	color: green;
+	font-size: 18px;
+}
+
+h1 {
+	font-family: "Arial";
+	margin-left: 10px;
+	text-align: center;
+	width: 65%;
+	border: 1px solid blue;
+}
+
+#testList, #selectTestList, #deviceSelector, #databasesList, #testSelector, #deviceList {
+	width: 400px;
+	border: 2px solid gray;
+	position: relative;
+}
+
+#TestList, #selectTestList, #deviceList {
+	background-color: #ccccff;
+}
+
+#deviceSelector, #testSelector {
+	background-color: #E3E1B8;
+}
+
+.label {
+	
+}
+
+.hintanchor {
+	font-weight: bold;
+	color: green;
+	margin: 3px 8px;
+}
+
+nav2 {
+	margin-left: 10px;
+	font-family: "Arial";
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+}
+
+a:link {
+	color: red;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	display: inline-block;
+	font-weight: bold;
+}
+
+.ulTitle {
+	text-align: left;
+	list-style-type: disc;
+}
+
+.liTitle {
+	display: list-item;
+}
+
+.label {
+	display: inline-block;
+	font-weight: bold;
+	width: 290mm;
+	margin: 3mm;
+    text-align: center;
+    border: 2px solid gray;
+    background-color: #A8A8B3;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+#loader {
+	position: fixed; 
+	top: 0; 
+	left: 0;
+	bottom: 0; 
+	right: 0;
+	z-index: 1000;
+	display: none;
+	background-image: url("../loader.gif");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-color:rgba(255,255,255,1);
+}
+
+header {
+	margin-left: 10px;
+}
+
+#title {
+	display: none;
+	width: 400mm;
+	height: 268mm;
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+@media print {
+	@page {
+		size: landscape;
+		margin: 0;
+	}
+
+	header, #updateChart, #loader {
+		display: none;
+	}
+	
+	#title {
+		display: block;
+	}
+	
+	.test {
+		margin: 0;
+		padding-top: 10mm;
+		padding-bottom: 10mm;
+		height: 268mm;
+		width: 400mm;
+		/*border: 5px solid red;*/
+		page-break-after: always;
+	}
+}

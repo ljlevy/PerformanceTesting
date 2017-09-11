@@ -1,0 +1,200 @@
+
+h1 {
+    font-family: "Arial";
+    margin-left: 30px;
+    text-align: center;
+    width: 85%;
+    border: 1px solid blue; 
+  }
+
+body {
+  background-color: white;
+  font-size: large;
+}
+
+.focused {
+    color: green;
+}
+
+
+#btn  {
+   display: block;
+   width: 100px;
+   line-height: 50px;
+   text-align: center;
+   vertical-align:middle;
+   color: white;
+   background-color: #E3E1B8; 
+   padding: 2px 4px;
+   font: 13px sans-serif;
+   text-decoration: none;
+   border: 1px solid #000;
+   border-color: #aaa #444 #444 #aaa;
+}
+
+
+
+#deviceLabel {
+    text-align: center;
+    width: 85%;
+    border: 2px solid grey;
+    background-color: #A8A8B3;
+
+}
+
+#testLabel {
+    text-align: center;
+    width: 85%;
+    border: 2px solid grey;
+    background-color: #A8A8B3;
+
+}
+
+
+
+#deviceList {
+    text-align: center;
+    width: 500px;
+    border: 2px solid grey;
+    background-color: #ccccff;
+    size:5;
+    position: relative;
+
+}
+
+
+#TestList {
+    text-align: center;
+    width: 500px;
+    border: 2px solid grey;
+    background-color: #ccccff;
+    position: relative;
+
+}
+
+
+
+#deviceSelector, #databasesList, #testSelector {
+  > a {
+    padding-right: 10px;
+    border-right: 1px solid black;
+    padding-left: 10px;
+  }
+  > a:last-child {
+    border-right: 0px solid blak;
+  }
+  background-color: #E3E1B8;
+  width:500px;
+}
+
+#Heading {
+   font-size:16px;
+}
+
+#selecttestlist {
+  > a {
+    padding-right: 10px;
+    border-right: 1px solid black;
+    padding-left: 10px;
+  }
+  > a:last-child {
+    border-right: 0px solid blak;
+  }
+  background-color: #ccccff;
+  width:500px;
+}
+
+nav {
+  margin-left: 30px;
+  ul {
+    padding-left: 0px;
+    font-family: "Arial";
+    li {
+      padding-right: 10px;
+      border-right: 1px solid black;
+    }
+    li:last-child {
+      border-right: 0px solid black;
+    }
+  }
+}
+
+
+nav2 {
+  margin-left: 10px;
+  font-family: "Arial";
+}
+
+
+#testList {
+  > a {
+    display: block;
+  }
+}
+
+ul {
+  list-style-type: none;
+  > li {
+    display: inline-block;
+    > a {
+      font-weight: bold;
+    }
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+a:link {
+  color: red;
+}
+
+
+#databasesList {
+  margin-left: 30px;
+}
+
+table {
+  > tr {
+    > th, td {
+      width: 400px;
+      text-align: center;
+    }
+    .button {
+      background-color: white;
+    }
+  }
+  > tr:nth-child(2n+1) {
+    background-color: #F5F5F5;
+  }
+  > tr:nth-child(2n) {
+    background-color: rgb(225, 225, 225);
+  }
+}
+
+#hintbox{ /*CSS for pop up hint box */
+position:absolute;
+top: 0;
+background-color: lightyellow;
+width: 200px; /*Default width of hint.*/ 
+padding: 3px;
+border:1px solid black;
+font:normal 11px Verdana;
+line-height:18px;
+z-index:100;
+border-right: 3px solid black;
+border-bottom: 3px solid black;
+visibility: hidden;
+}
+
+.hintanchor{ /*CSS for link that shows hint onmouseover*/
+font-weight: bold;
+color: green;
+margin: 3px 8px;
+}

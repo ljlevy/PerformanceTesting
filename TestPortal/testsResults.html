@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Test results</title>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script>
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/testsResults.css" />
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui.theme.min.css">
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./js/testsResults.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<h1>Performance tests portal</h1>
+			<ul class="nav2">
+				<li>
+					<a href="launchTests.html" class="hintanchor" alt="Select the Device to launch portal tests">Launch tests</a>
+				</li>
+				<li>
+					<a href="testsResults.html" class="hintanchor" alt="Show test results by Device">Tests results</a>
+				</li>
+				<li>
+					<a href="database.html" class="hintanchor" alt="Administrate middleware, version, model and mac Adress of the Device">Database administration</a>
+				</li>
+			</ul>
+
+			<div id="testLabel" class="label">
+				Test
+			</div>
+
+			<table>
+				<tr>
+					<th align="center"><h2>Available tests are:</h2></th>
+					<th align="center"><h2>Available actions:</h2></th>
+					<th align="center"><h2>Selected tests are:</h2></th>
+				</tr>
+				<tr>
+					<td><select id="testSelector" class="testSelector" multiple></select></td>
+					<td align="center">
+					<p id="filterDevice">
+						Search:
+						<input type="text" id="filterTest" value="">
+					</p>
+					<input id="AddButtonTest" type="button" value="Add selected tests &rArr;" class="btn" style="background-color:rgb(255,255,204);color:blue;font-size:18px">
+					<br />
+					<input id="DeleteButtonTest" type="button" value="&lArr; Remove selected tests" class="btn" style="background-color:rgb(255,204,255);color:red;font-size:18px">
+					</td>
+					<td><select id="selectTestList" class="selectTestList" multiple></select></td>
+				</tr>
+			</table>
+
+			<div id="deviceLabel" class="label">
+				Device
+			</div>
+
+			<table>
+				<tr>
+					<th align="center"><h2>Available middleware are:</h2></th>
+					<th align="center"><h2>Available actions:</h2></th>
+					<th align="center"><h2>Selected middleware are:</h2></th>
+				</tr>
+				<tr>
+					<td><select id="deviceSelector" class="deviceSelector" multiple></select></td>
+					<td align="center">
+					<p id="filterDevice">
+						Search:
+						<input type="text" id="filterDevice" value="">
+					</p>
+					<input id="AddButton" type="button" value="Add selected Devices &rArr;" class="btn" style="background-color:rgb(255,255,204);color:blue;font-size:18px">
+					<br />
+					<input id="DeleteButton" type="button" value="&lArr; Remove selected Devices" class="btn" style="background-color:rgb(255,204,255);color:red;font-size:18px">
+					</td>
+					<td><select id="deviceList" class="deviceList" multiple></select></td>
+				</tr>
+			</table>
+		</header>
+
+		<section>
+			<div id="resultSection">
+				<p id="updateChart">
+					<input id="printToPDF" type="button" value="Print in PDF" class="buttonAction" style="display:none;" />
+					<input id="showButton" type="button" value="Show results" class="buttonAction" />
+				</p>
+				<div id="title"></div>
+				<div id="resChartsAndTables"></div>
+			</div>
+		</section>
+		<div id="loader"></div>
+	</body>
+</html>

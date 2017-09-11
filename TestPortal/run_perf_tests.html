@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Run perf tests</title>
+        
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/testsResults.css" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui.theme.min.css">
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/testsResults.js"></script>
+         
+    </head>
+
+    <body>
+    <p> Select the tests: </p>
+    
+    <select id="testSelector" class="testSelector" multiple></select>
+       
+    <p> Choose your Middleware/Plugin: </p>
+    <select>
+        <option value="Middleware_1">Middleware_1</option>
+        <option value="Middleware_2">Middleware_2</option>
+        <option value="Middleware_3">Middleware_3</option>
+    </select>
+    
+    <p> Choose your Target: </p>
+    <select>
+        <option value="TARGET_1">TARGET_1</option>
+        <option value="TARGET_2">TARGET_2</option>
+        <option value="TARGET_3">TARGET_3</option>
+        <option value="TARGET_4">TARGET_4</option>
+    </select>
+    
+    <br><br>
+    <form action="action_page.php">
+    Version:<br>
+    <input type="text" name="Version" value="VERSION_XX.REL">
+    <br><br>
+    </form> 
+
+<input type="button" onclick="" value="Start Tests">
+    <br><br>
+        
+    </body>
+</html>
