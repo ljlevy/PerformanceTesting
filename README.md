@@ -1,5 +1,5 @@
 # PerformanceTesting
-How to compare performances of different devices, middelwares and browsers ?
+How to compare performances of different devices, middlewares and browsers ?
 
 You have here all the code :
   - To run performances tests using test benchmarks (fps, score, ...)coded in HTML5.
