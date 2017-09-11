@@ -1,10 +1,6 @@
 # PerformanceTesting
 How to compare performances of different devices, middlewares and browsers ?
 
-You have here all the code :
-  - To run performances tests using test benchmarks (fps, score, ...)coded in HTML5.
-  - To Manage the start of the tests using webdriver (click on buttons ...), analyse results and populate them in a Mongo data base.
-  - To compare the results for different devices and type of tests using google chart bargraph
 
 OVERVIEW:
 --------
@@ -71,8 +67,7 @@ The GIT source repository contains following directories:
 
 It allows for instance to get html test pages from external links or modify them locally to add some specificities (stats.js for fps ...)
  
-• TestSelenium is a collection of JAVA class that allows to get information on some URL and send the results to the data base 
-   using json format.
+• TestSelenium is a collection of JAVA class that allows to get information on some URL and send the results to the data base using json format.
    
 It is based on eclipse browser, TestNg add-in and Junit.
 It uses WEBDRIVER to take control of the device and populate the tests database using a test framework coded in JAVA.
