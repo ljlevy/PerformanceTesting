@@ -5,11 +5,16 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>DataTables example - Column rendering</title>
+	<title>DataTables example - Row grouping</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
 	<style type="text/css" class="init">
+
+tr.group,
+tr.group:hover {
+	background-color: #ddd !important;
+}
 
 	</style>
 	<script type="text/javascript" language="javascript" src="../../media/js/jquery.js"></script>
@@ -20,19 +25,38 @@
 
 
 $(document).ready(function() {
-	$('#example').dataTable( {
-		"columnDefs": [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				"render": function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				"targets": 0
-			},
-			{ "visible": false,  "targets": [ 3 ] }
-		]
+	var table = $('#example').DataTable({
+		"columnDefs": [
+			{ "visible": false, "targets": 2 }
+		],
+		"order": [[ 2, 'asc' ]],
+		"displayLength": 25,
+		"drawCallback": function ( settings ) {
+			var api = this.api();
+			var rows = api.rows( {page:'current'} ).nodes();
+			var last=null;
+
+			api.column(2, {page:'current'} ).data().each( function ( group, i ) {
+				if ( last !== group ) {
+					$(rows).eq( i ).before(
+						'<tr class="group"><td colspan="5">'+group+'</td></tr>'
+					);
+
+					last = group;
+				}
+			} );
+		}
+	} );
+
+	// Order by the grouping
+	$('#example tbody').on( 'click', 'tr.group', function () {
+		var currentOrder = table.order()[0];
+		if ( currentOrder[0] === 2 && currentOrder[1] === 'asc' ) {
+			table.order( [ 2, 'desc' ] ).draw();
+		}
+		else {
+			table.order( [ 2, 'asc' ] ).draw();
+		}
 	} );
 } );
 
@@ -43,21 +67,20 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>DataTables example <span>Column rendering</span></h1>
+			<h1>DataTables example <span>Row grouping</span></h1>
 
 			<div class="info">
-				<p>Each column has an optional rendering control called <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> which can be used to
-				process the content of each cell before the data is used. <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> has a wide array of options
-				available to it for rendering different types of data orthogonally (ordering, searching, display etc),
-				but it can be used very simply to manipulate the content of a cell, as shown here.</p>
+				<p>Although DataTables doesn't have row grouping built-in (picking one of the many methods available
+				would overly limit the DataTables core), it is most certainly possible to give the look and feel of row
+				grouping.</p>
 
-				<p>This example shows the person's age combined with their name in the first column, hiding the age
-				column. This technique can be useful for adding links, assigning colours based on content rules and any
-				other form of text manipulation you require.</p>
+				<p>In the example below the 'group' is the office location, which is based on the information in the
+				third column (which is set to hidden). The grouping indicator is added by the <a href=
+				"//datatables.net/reference/option/drawCallback"><code class="option" title=
+				"DataTables initialisation option">drawCallback<span>DT</span></code></a> function, which will parse
+				through the rows which are displayed, and enter a grouping TR element where a new group is found. A
+				<code>click</code> event handler is added for the grouping rows to allow the grouping order to be
+				restored as well as ordering by any other column.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -555,19 +578,38 @@ $(document).ready(function() {
 				<div class="js">
 					<p>The Javascript shown below is used to initialise the table shown in this
 					example:</p><code class="multiline brush: js;">$(document).ready(function() {
-	$('#example').dataTable( {
-		&quot;columnDefs&quot;: [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				&quot;render&quot;: function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				&quot;targets&quot;: 0
-			},
-			{ &quot;visible&quot;: false,  &quot;targets&quot;: [ 3 ] }
-		]
+	var table = $('#example').DataTable({
+		&quot;columnDefs&quot;: [
+			{ &quot;visible&quot;: false, &quot;targets&quot;: 2 }
+		],
+		&quot;order&quot;: [[ 2, 'asc' ]],
+		&quot;displayLength&quot;: 25,
+		&quot;drawCallback&quot;: function ( settings ) {
+			var api = this.api();
+			var rows = api.rows( {page:'current'} ).nodes();
+			var last=null;
+
+			api.column(2, {page:'current'} ).data().each( function ( group, i ) {
+				if ( last !== group ) {
+					$(rows).eq( i ).before(
+						'&lt;tr class=&quot;group&quot;&gt;&lt;td colspan=&quot;5&quot;&gt;'+group+'&lt;/td&gt;&lt;/tr&gt;'
+					);
+
+					last = group;
+				}
+			} );
+		}
+	} );
+
+	// Order by the grouping
+	$('#example tbody').on( 'click', 'tr.group', function () {
+		var currentOrder = table.order()[0];
+		if ( currentOrder[0] === 2 &amp;&amp; currentOrder[1] === 'asc' ) {
+			table.order( [ 2, 'desc' ] ).draw();
+		}
+		else {
+			table.order( [ 2, 'asc' ] ).draw();
+		}
 	} );
 } );</code>
 
@@ -589,7 +631,10 @@ $(document).ready(function() {
 					<div>
 						<p>This example uses a little bit of additional CSS beyond what is loaded from the library
 						files (below), in order to correctly display the table. The additional CSS used is shown
-						below:</p><code class="multiline brush: js;"></code>
+						below:</p><code class="multiline brush: js;">tr.group,
+tr.group:hover {
+	background-color: #ddd !important;
+}</code>
 					</div>
 
 					<p>The following CSS library files are loaded for use in this example to provide the styling of the
@@ -654,7 +699,7 @@ $(document).ready(function() {
 						<ul class="toc active">
 							<li><a href="./events_live.html">DOM / jQuery events</a></li>
 							<li><a href="./dt_events.html">DataTables events</a></li>
-							<li class="active"><a href="./column_render.html">Column rendering</a></li>
+							<li><a href="./column_render.html">Column rendering</a></li>
 							<li><a href="./length_menu.html">Page length options</a></li>
 							<li><a href="./dom_multiple_elements.html">Multiple table control elements</a></li>
 							<li><a href="./complex_header.html">Complex headers (rowspan / colspan)</a></li>
@@ -663,7 +708,7 @@ $(document).ready(function() {
 							<li><a href="./language_file.html">Language file</a></li>
 							<li><a href="./defaults.html">Setting defaults</a></li>
 							<li><a href="./row_callback.html">Row created callback</a></li>
-							<li><a href="./row_grouping.html">Row grouping</a></li>
+							<li class="active"><a href="./row_grouping.html">Row grouping</a></li>
 							<li><a href="./footer_callback.html">Footer callback</a></li>
 							<li><a href="./dom_toolbar.html">Custom toolbar elements</a></li>
 							<li><a href="./sort_direction_control.html">Order direction sequence control</a></li>

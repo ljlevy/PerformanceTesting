@@ -5,7 +5,7 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>DataTables example - Column rendering</title>
+	<title>DataTables example - Language file</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
@@ -21,18 +21,9 @@
 
 $(document).ready(function() {
 	$('#example').dataTable( {
-		"columnDefs": [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				"render": function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				"targets": 0
-			},
-			{ "visible": false,  "targets": [ 3 ] }
-		]
+		"language": {
+			"url": "../resources/de_DE.txt"
+		}
 	} );
 } );
 
@@ -43,21 +34,17 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>DataTables example <span>Column rendering</span></h1>
+			<h1>DataTables example <span>Language file</span></h1>
 
 			<div class="info">
-				<p>Each column has an optional rendering control called <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> which can be used to
-				process the content of each cell before the data is used. <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> has a wide array of options
-				available to it for rendering different types of data orthogonally (ordering, searching, display etc),
-				but it can be used very simply to manipulate the content of a cell, as shown here.</p>
+				<p>As well as being able to pass language information to DataTables through the <a href=
+				"//datatables.net/reference/option/language"><code class="option" title=
+				"DataTables initialisation option">language<span>DT</span></code></a> initialisation option, you can
+				also store the language information in a file, which DataTables can load by Ajax using the <a href=
+				"//datatables.net/reference/option/language.url"><code class="option" title=
+				"DataTables initialisation option">language.url<span>DT</span></code></a> option.</p>
 
-				<p>This example shows the person's age combined with their name in the first column, hiding the age
-				column. This technique can be useful for adding links, assigning colours based on content rules and any
-				other form of text manipulation you require.</p>
+				<p>The following example shows DataTables reading a German language file.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -556,18 +543,9 @@ $(document).ready(function() {
 					<p>The Javascript shown below is used to initialise the table shown in this
 					example:</p><code class="multiline brush: js;">$(document).ready(function() {
 	$('#example').dataTable( {
-		&quot;columnDefs&quot;: [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				&quot;render&quot;: function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				&quot;targets&quot;: 0
-			},
-			{ &quot;visible&quot;: false,  &quot;targets&quot;: [ 3 ] }
-		]
+		&quot;language&quot;: {
+			&quot;url&quot;: &quot;../resources/de_DE.txt&quot;
+		}
 	} );
 } );</code>
 
@@ -654,13 +632,13 @@ $(document).ready(function() {
 						<ul class="toc active">
 							<li><a href="./events_live.html">DOM / jQuery events</a></li>
 							<li><a href="./dt_events.html">DataTables events</a></li>
-							<li class="active"><a href="./column_render.html">Column rendering</a></li>
+							<li><a href="./column_render.html">Column rendering</a></li>
 							<li><a href="./length_menu.html">Page length options</a></li>
 							<li><a href="./dom_multiple_elements.html">Multiple table control elements</a></li>
 							<li><a href="./complex_header.html">Complex headers (rowspan / colspan)</a></li>
 							<li><a href="./object_dom_read.html">Read HTML to data objects</a></li>
 							<li><a href="./html5-data-attributes.html">HTML5 data-* attributes</a></li>
-							<li><a href="./language_file.html">Language file</a></li>
+							<li class="active"><a href="./language_file.html">Language file</a></li>
 							<li><a href="./defaults.html">Setting defaults</a></li>
 							<li><a href="./row_callback.html">Row created callback</a></li>
 							<li><a href="./row_grouping.html">Row grouping</a></li>

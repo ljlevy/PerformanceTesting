@@ -5,11 +5,17 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>DataTables example - Column rendering</title>
+	<title>DataTables example - Custom toolbar elements</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
 	<style type="text/css" class="init">
+
+
+.toolbar {
+	float: left;
+}
+
 
 	</style>
 	<script type="text/javascript" language="javascript" src="../../media/js/jquery.js"></script>
@@ -21,19 +27,10 @@
 
 $(document).ready(function() {
 	$('#example').dataTable( {
-		"columnDefs": [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				"render": function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				"targets": 0
-			},
-			{ "visible": false,  "targets": [ 3 ] }
-		]
+		"dom": '<"toolbar">frtip'
 	} );
+
+	$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 } );
 
 
@@ -43,21 +40,27 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>DataTables example <span>Column rendering</span></h1>
+			<h1>DataTables example <span>Custom toolbar elements</span></h1>
 
 			<div class="info">
-				<p>Each column has an optional rendering control called <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> which can be used to
-				process the content of each cell before the data is used. <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> has a wide array of options
-				available to it for rendering different types of data orthogonally (ordering, searching, display etc),
-				but it can be used very simply to manipulate the content of a cell, as shown here.</p>
+				<p>DataTables inserts DOM elements around the table to control DataTables features, and you can make
+				use of this mechanism as well to insert your own custom elements. In this example a <code class="tag"
+				title="HTML tag">div</code> with a class of 'toolbar' is created using <a href=
+				"//datatables.net/reference/option/dom"><code class="option" title=
+				"DataTables initialisation option">dom<span>DT</span></code></a>, with which HTML is inserted to create
+				the toolbar. You could put whatever HTML you want into the toolbar and add event handlers etc.</p>
 
-				<p>This example shows the person's age combined with their name in the first column, hiding the age
-				column. This technique can be useful for adding links, assigning colours based on content rules and any
-				other form of text manipulation you require.</p>
+				<p>For more complex features, or for creating reusable plug-ins, DataTables also has a feature plug-in
+				API available, which can be used to create plug-ins which are used in a table by a single character
+				reference in the <a href="//datatables.net/reference/option/dom"><code class="option" title=
+				"DataTables initialisation option">dom<span>DT</span></code></a> option (like the built in option of
+				<code class="string" title="String">f</code> refers to 'filtering input', you could have an
+				<code class="string" title="String">F</code> option which creates your own filtering input control,
+				custom to your app).</p>
+
+				<p><a href="https://datatables.net/extras/tabletools">TableTools</a> is a feature plug-in for
+				DataTables which adds buttons into a toolbar for a table, which controls such as copy to clipboard,
+				export and custom buttons.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -556,19 +559,10 @@ $(document).ready(function() {
 					<p>The Javascript shown below is used to initialise the table shown in this
 					example:</p><code class="multiline brush: js;">$(document).ready(function() {
 	$('#example').dataTable( {
-		&quot;columnDefs&quot;: [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				&quot;render&quot;: function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				&quot;targets&quot;: 0
-			},
-			{ &quot;visible&quot;: false,  &quot;targets&quot;: [ 3 ] }
-		]
+		&quot;dom&quot;: '&lt;&quot;toolbar&quot;&gt;frtip'
 	} );
+
+	$(&quot;div.toolbar&quot;).html('&lt;b&gt;Custom tool bar! Text/images etc.&lt;/b&gt;');
 } );</code>
 
 					<p>In addition to the above code, the following Javascript library files are loaded for use in this
@@ -589,7 +583,9 @@ $(document).ready(function() {
 					<div>
 						<p>This example uses a little bit of additional CSS beyond what is loaded from the library
 						files (below), in order to correctly display the table. The additional CSS used is shown
-						below:</p><code class="multiline brush: js;"></code>
+						below:</p><code class="multiline brush: js;">.toolbar {
+	float: left;
+}</code>
 					</div>
 
 					<p>The following CSS library files are loaded for use in this example to provide the styling of the
@@ -654,7 +650,7 @@ $(document).ready(function() {
 						<ul class="toc active">
 							<li><a href="./events_live.html">DOM / jQuery events</a></li>
 							<li><a href="./dt_events.html">DataTables events</a></li>
-							<li class="active"><a href="./column_render.html">Column rendering</a></li>
+							<li><a href="./column_render.html">Column rendering</a></li>
 							<li><a href="./length_menu.html">Page length options</a></li>
 							<li><a href="./dom_multiple_elements.html">Multiple table control elements</a></li>
 							<li><a href="./complex_header.html">Complex headers (rowspan / colspan)</a></li>
@@ -665,7 +661,7 @@ $(document).ready(function() {
 							<li><a href="./row_callback.html">Row created callback</a></li>
 							<li><a href="./row_grouping.html">Row grouping</a></li>
 							<li><a href="./footer_callback.html">Footer callback</a></li>
-							<li><a href="./dom_toolbar.html">Custom toolbar elements</a></li>
+							<li class="active"><a href="./dom_toolbar.html">Custom toolbar elements</a></li>
 							<li><a href="./sort_direction_control.html">Order direction sequence control</a></li>
 						</ul>
 					</div>

@@ -5,7 +5,7 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>DataTables example - Column rendering</title>
+	<title>DataTables example - Order direction sequence control</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
@@ -21,17 +21,13 @@
 
 $(document).ready(function() {
 	$('#example').dataTable( {
-		"columnDefs": [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				"render": function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				"targets": 0
-			},
-			{ "visible": false,  "targets": [ 3 ] }
+		"aoColumns": [
+			null,
+			null,
+			{ "orderSequence": [ "asc" ] },
+			{ "orderSequence": [ "desc", "asc", "asc" ] },
+			{ "orderSequence": [ "desc" ] },
+			null
 		]
 	} );
 } );
@@ -43,21 +39,30 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>DataTables example <span>Column rendering</span></h1>
+			<h1>DataTables example <span>Order direction sequence control</span></h1>
 
 			<div class="info">
-				<p>Each column has an optional rendering control called <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> which can be used to
-				process the content of each cell before the data is used. <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> has a wide array of options
-				available to it for rendering different types of data orthogonally (ordering, searching, display etc),
-				but it can be used very simply to manipulate the content of a cell, as shown here.</p>
+				<p>At times you may wish to change the default ordering direction sequence for columns (some or all of
+				them) to be 'descending' rather than DataTables' default ascending. This can be done through the use of
+				the <a href="//datatables.net/reference/option/columns.orderSequence"><code class="option" title=
+				"DataTables initialisation option">columns.orderSequence<span>DT</span></code></a> initialisation
+				parameter. This parameter also allows you to limit the ordering to a single direction, or you could add
+				complex behaviour to the ordering interaction.</p>
 
-				<p>This example shows the person's age combined with their name in the first column, hiding the age
-				column. This technique can be useful for adding links, assigning colours based on content rules and any
-				other form of text manipulation you require.</p>
+				<p>The example below shows:</p>
+
+				<ul class="markdown">
+					<li>Column 1 - default ordering</li>
+					<li>Column 2 - default ordering</li>
+					<li>Column 3 - ascending ordering only</li>
+					<li>Column 4 - descending ordering, followed by ascending and then ascending again</li>
+					<li>Column 5 - descending ordering only</li>
+					<li>Column 6 - default ordering</li>
+				</ul>
+
+				<p>It's worth noting that I don't have a good use case for when you might what to mix such complex
+				ordering behaviour into a single table, but the example shows how these options can be use and
+				therefore applied across all columns.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -556,17 +561,13 @@ $(document).ready(function() {
 					<p>The Javascript shown below is used to initialise the table shown in this
 					example:</p><code class="multiline brush: js;">$(document).ready(function() {
 	$('#example').dataTable( {
-		&quot;columnDefs&quot;: [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				&quot;render&quot;: function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				&quot;targets&quot;: 0
-			},
-			{ &quot;visible&quot;: false,  &quot;targets&quot;: [ 3 ] }
+		&quot;aoColumns&quot;: [
+			null,
+			null,
+			{ &quot;orderSequence&quot;: [ &quot;asc&quot; ] },
+			{ &quot;orderSequence&quot;: [ &quot;desc&quot;, &quot;asc&quot;, &quot;asc&quot; ] },
+			{ &quot;orderSequence&quot;: [ &quot;desc&quot; ] },
+			null
 		]
 	} );
 } );</code>
@@ -654,7 +655,7 @@ $(document).ready(function() {
 						<ul class="toc active">
 							<li><a href="./events_live.html">DOM / jQuery events</a></li>
 							<li><a href="./dt_events.html">DataTables events</a></li>
-							<li class="active"><a href="./column_render.html">Column rendering</a></li>
+							<li><a href="./column_render.html">Column rendering</a></li>
 							<li><a href="./length_menu.html">Page length options</a></li>
 							<li><a href="./dom_multiple_elements.html">Multiple table control elements</a></li>
 							<li><a href="./complex_header.html">Complex headers (rowspan / colspan)</a></li>
@@ -666,7 +667,8 @@ $(document).ready(function() {
 							<li><a href="./row_grouping.html">Row grouping</a></li>
 							<li><a href="./footer_callback.html">Footer callback</a></li>
 							<li><a href="./dom_toolbar.html">Custom toolbar elements</a></li>
-							<li><a href="./sort_direction_control.html">Order direction sequence control</a></li>
+							<li class="active"><a href="./sort_direction_control.html">Order direction sequence
+							control</a></li>
 						</ul>
 					</div>
 

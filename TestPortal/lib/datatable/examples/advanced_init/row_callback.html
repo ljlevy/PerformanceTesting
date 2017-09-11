@@ -5,11 +5,16 @@
 	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 
-	<title>DataTables example - Column rendering</title>
+	<title>DataTables example - Row created callback</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
 	<style type="text/css" class="init">
+
+	td.highlight {
+		font-weight: bold;
+		color: blue;
+	}
 
 	</style>
 	<script type="text/javascript" language="javascript" src="../../media/js/jquery.js"></script>
@@ -21,18 +26,11 @@
 
 $(document).ready(function() {
 	$('#example').dataTable( {
-		"columnDefs": [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				"render": function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				"targets": 0
-			},
-			{ "visible": false,  "targets": [ 3 ] }
-		]
+		"createdRow": function ( row, data, index ) {
+			if ( data[5].replace(/[\$,]/g, '') * 1 > 4000 ) {
+				$('td', row).eq(5).addClass('highlight');
+			}
+		}
 	} );
 } );
 
@@ -43,21 +41,20 @@ $(document).ready(function() {
 <body class="dt-example">
 	<div class="container">
 		<section>
-			<h1>DataTables example <span>Column rendering</span></h1>
+			<h1>DataTables example <span>Row created callback</span></h1>
 
 			<div class="info">
-				<p>Each column has an optional rendering control called <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> which can be used to
-				process the content of each cell before the data is used. <a href=
-				"//datatables.net/reference/option/columns.render"><code class="option" title=
-				"DataTables initialisation option">columns.render<span>DT</span></code></a> has a wide array of options
-				available to it for rendering different types of data orthogonally (ordering, searching, display etc),
-				but it can be used very simply to manipulate the content of a cell, as shown here.</p>
+				<p>The following example shows how a callback function can be used to format a particular row at draw
+				time. For each row that is generated for display, the <a href=
+				"//datatables.net/reference/option/createdRow"><code class="option" title=
+				"DataTables initialisation option">createdRow<span>DT</span></code></a> function is called once and
+				once only. It is passed the create row node which can then be modified.</p>
 
-				<p>This example shows the person's age combined with their name in the first column, hiding the age
-				column. This technique can be useful for adding links, assigning colours based on content rules and any
-				other form of text manipulation you require.</p>
+				<p>In this case a trivial example of making the 'salary' column blue and bold by adding a CSS class to
+				the container cell if the salary is greater than $4,000. Note that <a href=
+				"//datatables.net/reference/option/columns.createdCell"><code class="option" title=
+				"DataTables initialisation option">columns.createdCell<span>DT</span></code></a> could also be used to
+				create exactly the same effect.</p>
 			</div>
 
 			<table id="example" class="display" cellspacing="0" width="100%">
@@ -556,18 +553,11 @@ $(document).ready(function() {
 					<p>The Javascript shown below is used to initialise the table shown in this
 					example:</p><code class="multiline brush: js;">$(document).ready(function() {
 	$('#example').dataTable( {
-		&quot;columnDefs&quot;: [ 
-			{
-				// The `data` parameter refers to the data for the cell (defined by the
-				// `data` option, which defaults to the column being worked with, in
-				// this case `data: 0`.
-				&quot;render&quot;: function ( data, type, row ) {
-					return data +' ('+ row[3]+')';
-				},
-				&quot;targets&quot;: 0
-			},
-			{ &quot;visible&quot;: false,  &quot;targets&quot;: [ 3 ] }
-		]
+		&quot;createdRow&quot;: function ( row, data, index ) {
+			if ( data[5].replace(/[\$,]/g, '') * 1 &gt; 4000 ) {
+				$('td', row).eq(5).addClass('highlight');
+			}
+		}
 	} );
 } );</code>
 
@@ -589,7 +579,10 @@ $(document).ready(function() {
 					<div>
 						<p>This example uses a little bit of additional CSS beyond what is loaded from the library
 						files (below), in order to correctly display the table. The additional CSS used is shown
-						below:</p><code class="multiline brush: js;"></code>
+						below:</p><code class="multiline brush: js;">td.highlight {
+		font-weight: bold;
+		color: blue;
+	}</code>
 					</div>
 
 					<p>The following CSS library files are loaded for use in this example to provide the styling of the
@@ -654,7 +647,7 @@ $(document).ready(function() {
 						<ul class="toc active">
 							<li><a href="./events_live.html">DOM / jQuery events</a></li>
 							<li><a href="./dt_events.html">DataTables events</a></li>
-							<li class="active"><a href="./column_render.html">Column rendering</a></li>
+							<li><a href="./column_render.html">Column rendering</a></li>
 							<li><a href="./length_menu.html">Page length options</a></li>
 							<li><a href="./dom_multiple_elements.html">Multiple table control elements</a></li>
 							<li><a href="./complex_header.html">Complex headers (rowspan / colspan)</a></li>
@@ -662,7 +655,7 @@ $(document).ready(function() {
 							<li><a href="./html5-data-attributes.html">HTML5 data-* attributes</a></li>
 							<li><a href="./language_file.html">Language file</a></li>
 							<li><a href="./defaults.html">Setting defaults</a></li>
-							<li><a href="./row_callback.html">Row created callback</a></li>
+							<li class="active"><a href="./row_callback.html">Row created callback</a></li>
 							<li><a href="./row_grouping.html">Row grouping</a></li>
 							<li><a href="./footer_callback.html">Footer callback</a></li>
 							<li><a href="./dom_toolbar.html">Custom toolbar elements</a></li>
