@@ -152,36 +152,57 @@ DATA BASE:
 A device is defined with following Shema in mongo data base: (See file : TestServer/serverApp/DBEntries/Device.js)
 
 var deviceSchema = mongoose.Schema({
+
   middleware: String,
+  
   middlewareVersion: String,
+  
   model: String,
+  
   macAddress: String
 });
+
+
+
+
 
 A test has followng Shema: (See file : TestServer/serverApp/DBEntries/Test.js)
 
 var testSchema = mongoose.Schema({
+
   name: String,
+  
   description: String,
+  
   localisation: String,
+  
   url: String
+  
 });
 
-Although a test result: (See file : TestServer/serverApp/DBEntries/Results.js)
+
+Although a test result is defined by: (See file : TestServer/serverApp/DBEntries/Results.js)
 
 var testResultSchema = mongoose.Schema({
+
   value: mongoose.Schema.Types.Mixed,
+  
   test: {type: mongoose.Schema.Types.ObjectId, ref: 'tests'},
+  
   device: {type: mongoose.Schema.Types.ObjectId, ref: 'devices'}
+  
 });
 
 
-TestServer/index.js implements all available handler functions to interrogate database.
-TestServer/serverApp/js/server.js use following port : SERVER_PORT = 8899;
-TestServer/serverApp/js/requestHandlers.js implements all the requests to get or post data in database.
+
+• TestServer/index.js implements all available handler functions to interrogate database.
+
+• TestServer/serverApp/js/server.js use following port : SERVER_PORT = 8899;
+
+• TestServer/serverApp/js/requestHandlers.js implements all the requests to get or post data in database.
 
 
-You have to update correct value of data base server name + port  in following files:
+You have to update correct value of data base server: name + port  in following files:
 
   - TestPortal/testsResults.js
   - TestPortal/database.js
