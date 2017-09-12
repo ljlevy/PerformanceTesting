@@ -56,7 +56,8 @@ This tutorial is also valid for an installation on a LINUX platform. You just ne
 
 The GIT source repository contains following directories:
 
-• TestPortal contains all information concerning performances tests passed on some devices, 
+• TestPortal is the tool to display and compare test results using bargraph through google chart API.
+  It contains all information concerning performances tests passed on devices, 
   to be able to compare performances according to software version (fps, time, score ...)
    
   It is available at: http://serverName:8899/TestPortal/testsResults.html
