@@ -1,1 +1,50 @@
-
+<TEST preserve-order="true">	
+	<stbconfig mac="18:55:0F:6E:85:92" url="http://172.21.140.145:9515" middleware="xxx" version="stable-39.0.2171" model="bcm7401"/>
+        <database url="nuxcmcwkit.com:8899" />
+        <testcase preserve-order="true">
+			<class name="demo2.TestJetStream"/>
+			<class name="demo2.TestKraken"/>
+			<class name="demo2.TestSmashCat"/>
+			<class name="demo2.TestSmashCatV2"/>
+			<class name="demo2.TestSpeedometer"/>
+			<class name="demo2.TestSunSpiderTest"/>
+			<class name="demo2.TestSvgBenchMark"/>
+			<class name="demo2.TestCanvasList"/>
+			<class name="demo2.TestCanvasMovingPoints0"/>
+			<class name="demo2.TestCanvasMovingPoints1"/>
+			<class name="demo2.TestCanvasMovingPoints2"/>
+			<class name="demo2.TestCanvasMovingPoints3"/>
+			<class name="demo2.TestCanvasMovingPoints4"/>
+			<class name="demo2.TestCanvasMovingPoints5"/>
+			<class name="demo2.TestCanvasMovingPoints6"/>
+			<class name="demo2.TestCanvasMovingRectangles"/>
+			<class name="demo2.TestCss3List"/>
+			<class name="demo2.TestCss3VerticalList"/>
+			<class name="demo2.TestOctane"/>
+			<class name="demo2.TestBrowserMark"/>
+			<class name="demo2.TestCraftMind"/>
+			<class name="demo2.TestCss3Score"/>
+			<class name="demo2.TestDash"/>
+			<class name="demo2.TestECMA"/>
+			<class name="demo2.TestHtml5Score"/>
+			<class name="demo2.TestLinearGradient"/>
+			<class name="demo2.TestLocalStorage"/>
+			<class name="demo2.TestOrangeMarkStats"/>
+			<class name="demo2.TestPosterCircle"/>
+			<class name="demo2.TestResizeVideo"/>
+			<class name="demo2.TestRingMark"/>
+			<class name="demo2.TestVideoChangeSrc"/>
+			<class name="demo2.TestVideoLayoutTest"/>
+			<class name="demo2.TestVideoPaused"/>
+			<class name="demo2.TestVideoStats"/>
+			<class name="demo2.TestVideoTag"/>
+			<class name="demo2.TestVideoTexturing"/>
+			<class name="demo2.TestWebglCustomAttributes"/>
+			<class name="demo2.TestWebglGeometry"/>
+			<class name="demo2.TestWebglHelloRacer"/>
+			<class name="demo2.TestWebglSolarSystem"/>
+			<class name="demo2.TestWebglSphere"/>
+			<class name="demo2.TestWebSocket"/>
+			<class name="demo2.TestW3C"/>           
+       </testcase>
+</TEST>
