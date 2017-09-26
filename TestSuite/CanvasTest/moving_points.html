@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/canvas.css"></link>
+    <script src="../lib/log4javascript.js"></script>
+    <script src="../lib/configLog.js"></script>
+    <script src="../lib/fpsmeter.js"></script>
+    <script src="../lib/perfAnalyser.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/queryString.js"></script>
+</head>
+<body>
+<div>
+    <canvas id="mainCanvas" width="512" height="384" tabindex="-1"></canvas>
+    <div style="float: right">
+        <div>1: Full Square (fillrect)</div>
+        <div>2: Full Triangles</div>
+        <div>3: Full circles</div>
+        <div>4: Full Squares (draw path)</div>
+        <div>5: Snowflake PNG</div>
+        <div>6: Bezier clouds</div>
+        <div>7: Outlined squares</div>
+    </div>
+</div>
+<div><span>Type : </span><span id="type"></span></div>
+<div><span>Number of items : </span><span id="number"></span></div>
+<script src="js/Figure.js"></script>
+<script src="js/Snowflake.js"></script>
+<script src="js/Cloud.js"></script>
+<script src="js/SquareOutline.js"></script>
+<script src="js/Square.js"></script>
+<script src="js/Point.js"></script>
+<script src="js/Triangle.js"></script>
+<script src="js/LinedSquare.js"></script>
+<script src="js/ShownWindow.js"></script>
+<script src="js/MoveAnimation.js"></script>
+<script src="js/Animator.js"></script>
+<script src="js/Initialization.js"></script>
+
+
+<!--- Modification to see cisco fps overlay --->
+<script src="../lib/cisco_webkit_fps.js"> </script>
+</body>
+</html>

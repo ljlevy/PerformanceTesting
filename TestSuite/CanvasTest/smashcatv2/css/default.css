@@ -1,0 +1,51 @@
+body {
+	margin: 10px;
+	padding: 0;
+	border: 0;
+}
+
+div {
+	margin-top: 10px;
+	width: 800px;
+}
+
+div h1, div p {
+	margin: 0;
+	padding: 10px;
+}
+
+span {
+	float: right;
+	color: #ff0000;
+}
+
+div ul li {
+	list-style: none;
+}
+
+div#buff {
+	display: none;
+}
+
+#stats #fps #fpsText {
+	color: #ffffff !important;
+	font-family: Verdana, Geneva, sans-serif !important;
+	font-size: 20px !important;
+}
+
+#fpsGraph {
+	background-color: rgba(255,255,00,0.8) !important;
+}
+
+#cisco_fps_overlay {
+	margin-top: 0px !important;
+	position: absolute !important;
+	top: 14px !important;
+	left: 200px !important;
+	z-index: 10 !important;
+	width: 400px !important;
+	color: #ffffff !important;
+	font-family: Verdana, Geneva, sans-serif !important;
+	font-size: 20px !important;
+	text-align:left !important;
+}

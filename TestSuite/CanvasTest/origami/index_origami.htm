@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+		<meta charset="utf-8">
+		
+		<meta name="description" content="HTML5 Canvas Doodle" />
+		<meta name="author" content="Hakim El Hattab" />
+		
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		
+        <title>Origami</title>
+        
+		<link href="css/reset.css" rel="stylesheet" media="screen" />
+		<link href="css/main.css" rel="stylesheet" media="screen" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
+		
+    </head>
+    <body>
+    	<header>
+    		<h1>Origami</h1>
+    		<span class="header-instruction">Expand for more info.</span>
+    		
+    		<!-- The extra content that can be expanded -->
+    		<div class="extra">
+	    		
+    			<!-- Description of the experiment -->
+    			<section id="about">
+    				<h3>About</h3>
+	    			<p>
+						Simply a colorful folding doodle on &lt;canvas&gt;<br>
+						Click anywhere on the drawing to change layouts.
+	    			</p>
+	    			<p class="credits">
+	    				Created by <a href="http://hakim.se/">Hakim El Hattab</a> | <a href="http://twitter.com/hakimel">@hakimel</a>
+    				</p>
+	    		</section>
+				
+				<!--
+    			<section>
+    				<h3>Source</h3>
+	    			<p>
+						Source code is available on <a href="http://github.com/hakimel/Origami">GitHub</a>.
+	    			</p>
+	    		</section>
+				-->
+	    		
+	    		<!-- Social sharing -->
+	    		<section id="share">
+	    			<h3>Share</h3>
+					<iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fhakim.se%2Fexperiments%2Fhtml5%2Forigami%2F&amp;layout=box_count&amp;show_faces=false&amp;width=55&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=60" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:55px; height:60px;" allowTransparency="true"></iframe> 
+					<div id="retweet-button"> 
+						<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hakim.se/experiments/html5/origami/" data-text="Origami - a colorful folding doodle on canvas by @hakimel" data-count="vertical" data-related="hakimel">Tweet</a> 
+						<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+					</div>
+					<div class="g-plusone" data-size="tall" ... ></div> 
+	    		</section>
+	    		
+    		</div>
+    	</header>
+		
+		<script src="js/header.js"></script>
+		<script src="js/origami.js"></script>
+		
+		<!-- Third party tracking and sharing code below -->
+		
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+		
+	<!----- Stats monitoring for fps ----->
+    <script src="../../lib/stats.min.js"></script>
+ 
+ 	<script language="javascript">
+	  var stats = new Stats();
+	  stats.setMode( 0 );
+	  document.body.appendChild( stats.domElement );
+
+       stats.domElement.style.position="absolute";
+       stats.domElement.style.top= "45px";
+       stats.domElement.style.left= "300px";
+			
+	  setInterval( function () {
+
+	  var time = Date.now() * 0.001;
+	   stats.begin();
+	   stats.end();
+
+	 }, 1000 / 60 );
+
+	</script>	
+  
+
+<!--- Modification to see cisco fps overlay --->
+<script src="../../lib/cisco_webkit_fps.js"> </script>	
+
+	
+    </body>
+</html>

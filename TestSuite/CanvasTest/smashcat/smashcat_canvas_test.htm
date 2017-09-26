@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 canvas performance test - Scott Porter</title>
+
+<link type="text/css" rel="stylesheet" href="css/default.css" media="screen" />
+<script type="text/javascript" src="js/engine.js"></script>
+<script type="text/javascript" src="js/charDefs.js"></script>
+
+
+<!----- Begin  Modif ljl ----->
+<!----- Stats monitoring for fps ----->
+<script src="../../lib/stats.min.js"></script>
+<!----- End  Modif ljl ----->
+
+
+<script type="text/javascript">
+
+
+// Junk test code
+var char,
+	scene,
+	yRot=300,
+	zRot=0,
+	xRot=0,
+	pRot=0,
+	pRot2=0,
+	cTransX=400,
+	buffSurface=[],
+	totalBuffSurfaces=10,
+	buffSurfaceIX=0,
+	framesDrawn=0,
+	startTime=0,
+	fpsOb=null,
+	sRot=0;
+	
+function init(){
+
+	var n,p;
+		
+	char=[];
+	scene=new Scene('screen',totalBuffSurfaces);
+	scene.setAmbient(0.3);
+	scene.addLight( -250,50,3, 1,0,0 );
+	scene.addLight( 250,50,3, 0,0,1 );
+	scene.addLight( 0,-20,50, 0,0.3,0 );
+	scene.setBGColor('#0000ff');
+	scene.setBGColor('rgba(0,0,0,0.1)');
+	scene.setZoom(10);
+
+	// Make a sphere...
+	var sPoints=[];
+	var sPolys=[]
+	var tPoints=0;
+	var size=8;
+	var segs=36;
+	
+	for(var n=0;n<=Math.round(segs/2);n++){
+		
+		var div=360/segs;
+		
+		var amp=(tbl.sin[n*div]);
+		
+		for(var i=0;i<segs;i++){
+	
+			var i2=(i*div);
+			var y=size*tbl.cos[n*div];
+			var x=size*amp*tbl.sin[i2];
+			var z=size*amp*tbl.cos[i2];
+			sPoints.push([x,y,z]);
+			if(n>0 && i>0 && (i+n)%2)
+				sPolys.push( [ [tPoints,tPoints-1,(tPoints-segs)-1,tPoints-segs] , 0.5,0.5,0.5, 1,1, true ]);
+			++tPoints;
+		}
+		if(n>0)
+			sPolys.push( [ [tPoints-segs,tPoints-1,(tPoints-segs)-1,(tPoints-segs)-segs] , 0.5,0.5,0.5, 1,1, true ]);
+	}
+
+	var sphere=new Object3D();
+	sphere.setPoints(sPoints);
+	sphere.setPolys(sPolys);
+	sphere.translate(0,0,100);
+	sphere.setZoom(30);
+	scene.addObject(sphere);
+	scene.setBGColor('#000000');
+	scene.cullBackFacing(false);
+
+	for(n=0;n<totalBuffSurfaces;n++){
+		scene.setBuffer(n);
+		sphere.translate(0,0,200);
+		sphere.rotate(0,n*2,0);
+		scene.render();
+	}
+	scene.removeObjects();	// Don't need the sphere ob any more now we have a render
+	scene.setBuffer(-1);	// resets the renderer to point to the output buffer
+	scene.setBGColor('rgba(0,0,0,0.1)');
+	scene.cullBackFacing(true);
+
+	// Set up chars
+	preprocessChars();
+	
+	setInterval(moveIt,1);
+	fpsOb=document.getElementById('fps');
+	startTime=new Date().getTime();
+	
+	// ljl 
+	animate();
+}
+
+function moveIt(){
+
+	for(var n=0;n<char.length;n++){
+		char[n].translate(cTransX+(n*200),0,100);
+		char[n].rotate(xRot,yRot+(10*n),zRot+(20*n));
+	}
+	scene.cls();
+	scene.rotate(sRot);
+	sRot+=0.05;
+	scene.blitBuffer(buffSurfaceIX);
+	scene.render();
+
+	if(++buffSurfaceIX==totalBuffSurfaces)
+		buffSurfaceIX=0;
+
+	yRot+=0.5
+	if(yRot==360)
+		yRot=0;
+
+	zRot+=1.5;
+	if(zRot>359)
+		zRot=0;
+
+	xRot+=1;
+	if(xRot>359)
+		xRot=0;
+
+	cTransX-=5;
+	if(cTransX<-4100)
+		cTransX=400;
+	var elapsed=new Date().getTime()-startTime;
+	++framesDrawn;
+	// ljl: Comment this
+	//fpsOb.innerHTML=Math.round(framesDrawn/(elapsed/1000))+"fps";
+}
+</script>
+
+</head>
+<body onload="init()">
+<canvas id="screen" width="800" height="600">This demo requires canvas support.</canvas>
+<div>
+        <!----- ljl : Comment this ---->
+	<h1><!--span id="fps"---><!----Waiting...---><!---/span--->Canvas Performance Test:</h1>
+	<p>
+        Quick and dirty Canvas 3D engine - <a href="http://twitter.com/scerion">Scott Porter</a>, 2011-01-11 - No external libs used.
+	</p>
+	<p>
+	Please note, this does NOT use WebGL. It's a test of canvas performance only. On my system, this test runs at 34fps on Firefox 3.6, 97fps on Firefox 4.0 Beta, and 311fps(!) on IE9.
+	</p>
+
+
+<!----- Begin  Modif ljl ----->
+	
+  	<script language="javascript">
+	  var stats = new Stats();
+	  stats.setMode( 0 );
+	  document.body.appendChild( stats.domElement );
+
+       stats.domElement.style.position="absolute";
+       stats.domElement.style.top= "0px";
+       stats.domElement.style.left= "10px";
+ 
+ 	 function animate() {
+
+		requestAnimationFrame( animate );
+
+		render();
+		stats.update();
+
+	}	  
+	
+	function render() {
+
+	 // Nothing except getting stats after request animation
+	 var time = Date.now() * 0.001;
+
+	}
+	 
+	</script> 	
+	
+
+<!--- Modification to see cisco fps overlay --->
+<script src="../../lib/cisco_webkit_fps.js"> </script>
+
+<!----- End  Modif ljl ----->
+
+
+</body>
+</html>
