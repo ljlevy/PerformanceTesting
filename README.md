@@ -382,6 +382,9 @@ STEP 3°) Run Webdriver test using java
 
   • You can install such a version in your linux station locally :
     /local/eclipse/jre1.7.0_51/bin and make java pointed on /local/eclipse/jre1.7.0_51/bin/java
+    
+  • You need to install selenium-server-standalone-2.37.0.jar and use it in eclipse IDE 
+    https://repo.jenkins-ci.org/releases/org/seleniumhq/selenium/selenium-server-standalone/2.37.0/
 
    There are 2 ways to do that:
 
