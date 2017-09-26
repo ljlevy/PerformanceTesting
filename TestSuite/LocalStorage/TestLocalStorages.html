@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test local stroage Settings</title>
+<link rel="author" title="J. LEVY" href="http://www.cisco.com/" />
+
+
+
+<script>
+  var myVar=setInterval(function() {myTimer()}, 1000);
+  var TIME_1 = 2;
+  var TIME_2 = 10;
+  var TIME_3 = 20;
+  var TIME_4 = 30;
+
+  /* Initial Time */
+  var d0=new Date();
+  var t0=d0.toLocaleTimeString();  
+  var VALUE_TO_SET= "VICTOR HUGO";
+  var test_finished=false;
+
+  
+function myTimer()
+{
+   /* Current time */   
+   var d=new Date();
+   var t=d.toLocaleTimeString();
+   var diff = Math.round( (d.getTime() - d0.getTime())/1000); 
+   var item ="";
+
+   if (diff == TIME_1)
+   {
+   	  document.getElementById('Directive').innerHTML="Setting "+VALUE_TO_SET+" in key 'MySettings' from Local Storage ";
+	  console.log("Set 'MySettings' in local Storage to "+VALUE_TO_SET+" ");
+	  localStorage.setItem('MySettings', ''+VALUE_TO_SET+'');
+   }
+   else if (diff == TIME_2) 
+   {
+      console.log("Set local Storage "+VALUE_TO_SET+" to MySettings");
+	  item = localStorage.getItem('MySettings');
+	  console.log(" item is "+item+" ");
+	  //alert("item is:"+item+", VALUE_TO_SET is:"+VALUE_TO_SET+"   ");
+	  if (item != VALUE_TO_SET)
+	  {
+	     test_finished = true;
+		 document.getElementById("Status").innerHTML="FAILED<br>Current setting should have been "+VALUE_TO_SET+"";
+	  }
+	  document.getElementById('Setting').innerHTML="Setting is "+item+" ";
+   }
+   else if (diff == TIME_3) 
+   {
+      document.getElementById('Directive').innerHTML="Destroying 'MySettings' key from Local Storage ";
+	  console.log("Destroying 'MySettings' from local Storage");
+	  localStorage.removeItem('MySettings');  	    	  
+   }
+   else if (diff == TIME_4) 
+   {
+   	  item = localStorage.getItem('MySettings');
+	  console.log(" item is "+item+" ");
+	  if ( (item != null) || ((item != undefined)) )
+	  {
+	     test_finished = true;
+		 document.getElementById("Status").innerHTML="FAILED<br>Current setting should have been removed";
+	  }	
+	  document.getElementById('Setting').innerHTML="Setting is "+item+" ";
+   }
+   else if (diff > TIME_4)
+   {
+ 	     test_finished = true;
+		 document.getElementById("Status").innerHTML="PASSED";  
+   }
+   
+   if ( true == test_finished )
+	{
+	    if (document.getElementById("Status").innerHTML=="PASSED")
+		{
+		   document.getElementById("TabRes").style.backgroundColor="#00ff00";
+	    }  
+	    else
+	    {
+		   document.getElementById("TabRes").style.backgroundColor="#ff0000";
+        }
+		
+	    document.getElementById("Status").style.visibility = "visible";
+		document.getElementById("EndTest").style.visibility = "visible";
+	    console.log("test is finished");
+	    clearInterval(myVar);	
+	 } 
+}
+
+</script>
+ </head>
+
+ <body>
+<center>
+ <font color="#0000ff" size="+3">Test Local Storage </font>
+ </center>
+ <br><br>
+ 	  <table cellpadding=5 cellspacing=5> 
+         <tr> 
+           <td bgcolor="#ffffcc">  <u>Setting:</u> <div id="Setting">  </div> </td>
+	     </tr>
+	     <tr>
+            <td bgcolor="#ccccff"> <u>Directive:</u>  <div id="Directive">  </div> </td>	  
+         </tr>
+
+	     <tr>
+           <td id="TabRes">   <div id="Status" style="visibility:hidden"> Status </div> </td>	  
+         </tr>  
+	     <tr>
+            <td>   <div id="EndTest" style="visibility:hidden"> End of test </div> </td>	  
+       	 </tr>
+		 
+   
+        </table>
+       
+ </body>
+
+</html>
