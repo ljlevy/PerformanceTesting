@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Basemark Web 3.0 | Main page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Fonts -->
+    <link href='fonts/open-sans.css' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-switch.min.css" rel="stylesheet">
+
+    <!-- Icons
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57-precomposed.png">
+    -->
+    <link rel="shortcut icon" href="icons/favicon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/brand.css" type="text/css">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+
+        <script type="text/javascript">
+        var hid = '';
+    </script>
+    <!-- whichbrowser -->
+    <script>
+        (function ()
+        {
+            var p = [], w = window, d = document, e = f = 0;
+            p.push('ua=' + encodeURIComponent(navigator.userAgent));
+            e |= w.ActiveXObject ? 1 : 0;
+            e |= w.opera ? 2 : 0;
+            e |= w.chrome ? 4 : 0;
+            e |= 'getBoxObjectFor' in d || 'mozInnerScreenX' in w ? 8 : 0;
+            e |= ('WebKitCSSMatrix' in w || 'WebKitPoint' in w || 'webkitStorageInfo' in w || 'webkitURL' in w) ? 16 : 0;
+            e |= (e & 16 && ({}.toString).toString().indexOf("\n") === -1) ? 32 : 0;
+            p.push('e=' + e);
+            f |= 'sandbox' in d.createElement('iframe') ? 1 : 0;
+            f |= 'WebSocket' in w ? 2 : 0;
+            f |= w.Worker ? 4 : 0;
+            f |= w.applicationCache ? 8 : 0;
+            f |= w.history && history.pushState ? 16 : 0;
+            f |= d.documentElement.webkitRequestFullScreen ? 32 : 0;
+            f |= 'FileReader' in w ? 64 : 0;
+            p.push('f=' + f);
+            p.push('r=' + Math.random().toString(36).substring(7));
+            p.push('w=' + screen.width);
+            p.push('h=' + screen.height);
+            var s = d.createElement('script');
+            s.src = 'whichbrowser/detect.php?' + p.join('&');
+            d.getElementsByTagName('head')[0].appendChild(s);
+        })();
+    </script>
+
+    <script src="whichbrowser/detect.php"></script>
+    <script src="js/frontpage/ios-detect.js"></script>
+    <!-- GA -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62695348-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+<body>
+<div id='dpi-test' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
+<nav class="navbar navbar-default">
+    <div id="brand-header" class="container-fluid background-secondary">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bm-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img height="39" src="images/basemark_white_noborder.png" alt="Basemark"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bm-navbar-collapse">
+            <div class="row">
+                <div id="some-links" class="row text-center col-xs-4 col-sm-4 col-md-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                    <a href="https://www.facebook.com/BasemarkLtd"><img class="img-responsive" width="25" src="icons/facebook-gray.png" alt="Basemark on Facebook"></a>
+                    <a href="https://twitter.com/BasemarkLtd"><img class="img-responsive" width="25" src="icons/twitter-gray.png" alt="Basemark on Twitter"></a>
+                    <a href="https://www.linkedin.com/company/basemarkltd"><img class="img-responsive" width="25" src="icons/linkedin-gray.png" alt="Basemark on LinkedIn"></a>
+                </div>
+                <div class="nav-collapsed pull-right col-xs-5 col-sm-5 col-md-5">
+                    <div class="col-xs-12 col-sm-6 col-md-1 text-center navbarRight"><a href="/">Home</a></div>
+                    <div class="col-xs-12 col-sm-6 col-md-1 text-center navbarRight"><a href="https://www.basemark.com/product-catalog/basemark-web30">About</a></div>
+                    <!--div class="col-xs-12 col-sm-1 col-md-1 text-center navbarRight"><a href="#">Login</a></div-->
+                </div>
+            </div>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="brand-container" class="container">
+    <div id="brand-heading" class="center-block">
+        <img src="images/Basemark_web_header.png" alt="Basemark Web 3.0" align="left" class="img-top">
+        <br clear="all">
+        <span class='LightDatamode' data-mode="free">Free</span>
+        <span class='LightDatamode' data-mode="pro">Pro</span>
+        <span class='LightDatamode' data-mode="corporate">Corporate</span>
+        <br clear="all">&nbsp;
+    </div>
+    <div class="text-center">
+        <div id="launcher-ad" class="hidden">
+            <h1 id="launcher-text">Get More Detailed Results with the Desktop Launcher</h1>
+            <a id="launcher-dl-1" href=""><img id="launcher-button" src="images/download_windows_button.png"></a>
+        </div>
+        <p id="launcher-not-using" class="hidden">Not using <span id="launcher-current-os"></span>? Download launcher for <a id="launcher-dl-2"></a> or <a id="launcher-dl-3"></a> instead.</p>
+        <a id="start" href="/run/" class="btn disabled">Start</a>
+        <br><span id="tos">By executing the Basemark Web 3.0 you accept <a href="/tos">Terms of Service</a>.</span>
+    </div>
+    <!--------------- -->
+
+                <div id="template-infobox-info-message">
+                    <div class="row">
+                        <div  class=" infobox  "><img id= "small-icon" align="left" class="img-responsive small-icon " width="30" src="icons/+notify_icon.png">
+                            <div class="info-message"><small>To get the most reliable score from this benchmark, please close all other browsers and tabs and make sure your screen stays awake the whole time during the test.</small></div>
+                        </div>
+                    </div>
+                </div>
+    <!--------------- -->
+    <div class="panel-group" id="extended-information"  >
+
+            <div class=" panel panel-default" >
+
+                <div class='  disabled panel-heading active accordion-heading' role="presentation" >
+                    <div class="panel-title accordion-title">
+                        <a href="#info"  data-toggle="collapse" data-parent="#extended-information"
+                            class="disabled">
+
+                            <img class="accordion-icon" src="icons/info-enabled.png" data-enabled="icons/info-enabled.png" data-disabled="icons/info-disabled.png" data-hover="icons/info-hover.png" width="25" alt="Info"> device info 
+                        </a>
+                    </div>    
+                </div>
+
+                <div id="info"  class=" active panel-collapse collapse in" >
+                            <div class="row" id="os-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">OS</div>
+                                <div class="col-md-6 value">&nbsp;</div>
+                            </div>
+                            <div class="row" id="browser-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">browser</div>
+                                <div class="col-md-6 value">&nbsp;</div>
+                            </div>
+                            <div class="row" id="engine-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">engine</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 value">&nbsp;</div>
+                            </div>
+                            <div class="row" id="resolution-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">resolution</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 value">&nbsp;</div>
+                            </div>
+                            <div class="row" id="device-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">device</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 value">&nbsp;</div>
+                            </div>
+                            <div class="row" id="high_res-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right">High Resolution Time</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 value last">&nbsp;</div>
+                            </div>
+                            <div class="row hidden" id="hardware-info">
+                                <div class="col-xs-6 col-sm-6 col-md-6 text-right last">Hardware</div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 value last">&nbsp;</div>
+                            </div>
+                </div>
+
+            </div>
+
+
+            <div class="  panel panel-default" >
+
+                <div class=' disabled panel-heading active accordion-heading ' role="presentation">
+                    <div class="panel-title accordion-title">
+                        <a href="#configuration"  data-toggle="collapse" data-parent="#extended-information">
+
+                            <img class="accordion-icon" src="icons/config-active.png" data-enabled="icons/config-active.png" data-disabled="icons/config-active.png" width="25" alt="Configuration"> configuration
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="configuration"  class="panel-collapse collapse" >
+                    <div class="row" id="general-config">
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right " id="config-start">Conformance</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="conformance" min="0" max="1" step="1" value="1">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Battery</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="battery" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 text-center" id="results-url">After your device battery has exhausted, your result can be found from <a></a>  (please bookmark, or write down, this URL before starting the battery test)</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last mode-corporate">Save</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last mode-corporate"><select name="save" class="form-control" >
+                            <option value="2" selected>Public save</option>
+                            <option value="1">Private save</option>
+                            <option value="0">Don't save</option>
+                        </select><span class="select-arrow-down2">&dtri;</span>
+                        </div>
+                    </div>
+                    <div class="row mode-pro" id="suite-config">
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Select suite</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value"><select name="suite" class="form-control">
+                            <option value="0" selected>All Suites</option>
+                            <option value="1">Core Suite</option>
+                            <option value="2">Graphics Suite</option>
+                            <option value="3">Generic Suite</option>
+                        </select><span class="select-arrow-down">&dtri;</span></div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">All tests</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="0" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mode-pro" id="tests-suite-1-config">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center subheading">Core Suite</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Array Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="1" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Bitwise Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="2" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">Built-in Objects Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="3" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mode-pro" id="tests-suite-2-config">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center subheading">Graphics Suite</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">WebGL 1.0.2 Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="4" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">WebGL 2.0 Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="5" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Shader Pipeline Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="6" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Draw-call Stress Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="7" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Geometry Stress Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="8" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">Canvas Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="9" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">SVG Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="10" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mode-pro" id="tests-suite-3-config">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center subheading">Generic Suite</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">jQuery Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="11" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">AngularJS Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="12" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">Backbone.js Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="13" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">Crunch Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="14" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">DOM Search Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="15" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right last">DOM Create Source Test</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 value last">
+                            <div class="range-input">
+                                <div class="off">X</div>
+                                <input type="range" name="test" data-id="16" min="0" max="1" step="1" value="0">
+                                <div class="on">✓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="  panel panel-default" >
+
+                <div class=' disabled panel-heading active accordion-heading ' role="presentation">
+                    <div class="panel-title accordion-title">
+                        <a id="run-demo" href="#">
+                            <img class="accordion-icon" src="images/demomode_button.png" width="25" alt="Run demo mode"> run demo mode
+                        </a>
+                    </div>
+                </div>
+
+                <div id="demomode-info"  class="panel-collapse" >
+                    Runs all graphics tests in fullscreen demo mode.
+                    <br>Note, this is not an official benchmark run and does not provide results.
+                </div>
+            </div>
+    </div>
+        
+</div>
+<!-- Scripts -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/frontpage/init.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-switch.min.js"></script>
+</body>
+</html>
