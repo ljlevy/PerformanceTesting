@@ -1,0 +1,18 @@
+.body {background-color: silver;}
+.rules {display: block; position: absolute; z-index: 210;  margin-left: -400px; left: 50%; top: 50px; background-color: black; font-family: arial; color: white; width: 800px; height: 460px;padding: 10px;}
+.rules h1 {text-align: center; color: #aaf;}
+.rules .important {color: #aaf; font-weight: bold;}
+.rules label {float: left; display: block; width: 200px;}
+.rules .block1 {display: block; float: left; width: 400px; padding: 10px; text-align: justify;}
+.rules .block2 {display: block; float: right;}
+.block3 {display: block; clear: both; width:  100%; text-align: center;}
+.startButton {border: 2px solid lime; background-color: black; color: lime; height: 50px; width: 150px; font-size: 20pt; display: inline; }
+.rules a {color: #aaf; text-decoration: none;}
+.rules a:hover {color: blue;}
+.bar {position: absolute; color: white; font-family: arial; font-size: 12pt; font-weight: bold; z-index: 209; top: 5px; left: 5px;}
+.loading {opacity: 1.0; display: none; position: absolute; z-index: 210;  margin-left: -200px; left: 50%; top: 50%; margin-top: -40px; background-color: black; font-family: arial; color: white; width: 400px; height: 80px;padding: 10px; text-align: center; font-size: 18pt;}
+.win {display: none; position: absolute; z-index: 210;  margin-left: -180px; left: 40%; top: 50px; background-color: black; font-family: arial; color: white; width: 624px; height: 480px;padding: 22px;}
+.win h1 {text-align: center; color: #aaf;}
+.win h2 {text-align: center; color:#ffa; }
+.loadingText{color: #f00; font-size: 16pt; margin-right: auto; margin-left: auto; text-decoration: blink; }
+.win label {float: left; display: block; width: 200px;}
