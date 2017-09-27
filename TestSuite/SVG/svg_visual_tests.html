@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=680" />
+    
+    <title>svg.js - visual tests</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:900' rel='stylesheet' type='text/css'>
+    
+    <style type="text/css" media="screen">
+      body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; }
+      h2 { margin: 10px; font-family: 'Source Sans Pro'; font-weight: normal; }
+      h3 { margin: 0 0 10px 0; font-size: 12px; font-weight: 300; }
+      ul { margin: 0; padding: 0; border-bottom: 1px solid #ccc; padding-bottom: 30px; }
+      li { list-style-type: none; width: 160px; display: inline-block; margin: 10px; }
+      .paper { width: 161px; height: 161px; background-image: url('images/grid.png'); }
+	  
+	@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v7/toadOcfmlt9b38dHJxOBGHiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}  
+	  
+	  
+    </style>
+	
+	
+    
+  </head>
+  
+  <body>
+    
+    <ul id="results">
+      
+    </ul>
+    
+    <script>
+    document.write('<script src=lib/' +
+    ('__proto__' in {} ? 'zepto' : 'jquery') +
+    '.min.js><\/script>')
+    </script>
+	<script src="svg.js" type="text/javascript" charset="utf-8"></script
+    <!---script src="https://s3-eu-west-1.amazonaws.com/svgjs/svg.js" type="text/javascript" charset="utf-8"---->
+    <script src="javascripts/svg.draggable.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/svg.easing.js" type="text/javascript" charset="utf-8"></script>
+    <script src="helper.js" type="text/javascript" charset="utf-8"></script>
+    <script src="visual.js" type="text/javascript" charset="utf-8"></script>
+    
+  </body>
+  
+</html>
