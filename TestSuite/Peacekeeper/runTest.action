@@ -1,0 +1,44 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<!-- Futuremark Peacekeeper -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Peacekeeper</title>
+
+<!-- Fallback refresh after 120 seconds. -->
+<meta http-equiv="refresh" content="120; url=runtimeout.action?testName=renderGrid02">
+
+<link rel="stylesheet" href="css/test-style.css" type="text/css" media="screen" />
+
+<script src="js/libs/jquery-1.6.4.min.js"></script>
+<script src="js/benchmark.js"></script>
+<script src="js/assetmanager.js"></script>
+
+
+
+<script type="text/javascript">
+benchmark.suiteProgress = 0;
+benchmark.suiteCount = 6;
+benchmark.suiteName = "render";
+benchmark.suiteTitle = "Rendering";
+benchmark.suiteBackground = "";
+benchmark.suiteDescription = "Now testing your browser's ability to render and modify the HTML elements used in typical web pages.";
+benchmark.remainingTime = "5 minutes left";
+benchmark.testObjectName = "renderGrid02";
+benchmark.testDescription = "This second test increases the number of squares. Fast desktops should breeze through, while tablets and phones start to slow.";
+</script>
+
+
+
+</head>
+<body onload="benchmark.init()">
+
+<div id="playground"></div>
+<div id="hiddenPlayground"></div>
+
+</body>
+</html>
+
