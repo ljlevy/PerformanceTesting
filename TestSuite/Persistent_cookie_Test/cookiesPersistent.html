@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+ <head>
+  <title>Javascript: Persistent Cookie Test</title>
+  <meta name="Author" content="Krijn Hoetmer ~ http://ktk.xs4all.nl/">
+  <script type="text/javascript" src="cookiesPersistent.js"></script>
+ </head>
+ <body bgcolor="white">
+  <h1>Persistent Cookie Test</h1>
+  <h2>Let's test</h2>
+  <dl>
+   <dt>Variables</dt>
+    <dd><input type="text" id="txtNumber" name="txtNumber" value="60"> cookies, with value <input type="text" id="txtValue" name="txtValue" value="x"></dd>
+   <dt>Create me some cookies</dt>
+    <dd><button id="cmdTestButton" type="button" style="background-color:lightgreen">Now!</button> (Could take some time)</dd>
+   <dt>Now check which cookies are still set</dt>
+    <dd><button id="cmdTestButtonCheck" type="button" style="background-color:lightgreen">And do it right now!</button></dd>
+   <dt>Remembered cookies</dt>
+    <dd><textarea cols="50" rows="5" name="txtTestCheck" id="txtTestCheck"></textarea></dd>
+   <dt>Now please erase those cookies again</dt>
+    <dd><button id="cmdRemoveCookies" type="button" style="background-color:lightgreen">Yeah, please</button></dd>
+  </dl>
+  <p> How to Test </br>
+      1) Press "Create Cookies!" buttom to create cookies. </br>
+      2) Press "Check Cookies!" button to check, how many cookies are set. </br>
+      3) Once you have created cookies, close the browser</br>
+         press "Check Cookies!" button, you should be able to see cookies set by you </br>
+  </p>
+</body>
+</html>
